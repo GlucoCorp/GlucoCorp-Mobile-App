@@ -39,7 +39,7 @@ img {
     flex-wrap: wrap;
     animation: fadeIn 2s ease-in-out;
     background: rgba(255, 255, 255, 0.8); /* Slight white background with transparency */
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 0px; /* Rounded corners */
 }
 
 .description {
