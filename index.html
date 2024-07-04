@@ -1,36 +1,53 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlucoCorp Landing Page</title>
-    <link rel='stylesheet' href='style.css'>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header> <img src="logo-removebg-preview.png"></header>
+    <div class="logo">
+        <img src="logo-removebg-preview.png" alt="GlucoCorp Logo">
+    </div>
+
     <div class="container">
         <div class="description">
             <h1>Get the best care for you and your baby</h1>
-            <p>The app contains a predictive model used in screening of diabetes through close monitoring of blood glucose and blood pressure levels allowing for early diagnosis. 
-                It contains a real time graph for tracking glucose levels and a chatbot as well as articles that help educate the users on gestational diabetes. 
-            </p>
-            <button class="cta-button" id="learnMoreButton">Learn More</button>
+            <a href="#featuresVideoSection" class="cta-button" onclick="playVideo()">Learn More</a>
         </div>
 
-        <div class="media" id="videoSection">
-            <video id="promoVideo" width="200" controlsList="nodownload">
+        <div class="media" id="featuresVideoSection">
+            <video id="featuresVideo" width="200" controlsList="nodownload">
                 <source src="prototype.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div class="store-buttons">
-            <a href="#"><img src="google-play-badge.png" alt="Get it on Google Play"></a>
-            <!--<a href="#"><img src="app-store-badge.png" alt="Download on the App Store"></a>-->
-        </div>
     </div>
-    <footer>
+
+    <div id="about" class="about">
+        <h2>About</h2>
+        <p>The app contains a predictive model used in screening of diabetes through close monitoring of blood glucose and blood pressure levels allowing for early diagnosis. 
+            It contains a real time graph for tracking glucose levels and a chatbot as well as articles that help educate the users on gestational diabetes. 
+        </p>
+    </div>
+
+    <div id="subscription" class="subscription">
+        <h3>Enter email to be added to waitlist</h3>
+        <form action="index.php" method="post">
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+            <button type="submit" class="cta-button">Subscribe</button>
+        </form>
+    </div>
+
+    <footer id="footer">
         <p>&copy; GlucoCorp 2024</p>
     </footer>
-    <script src="index.js"></script>
 
+    <script>
+        function playVideo() {
+            document.getElementById('featuresVideo').play();
+        }
+    </script>
 </body>
+</html>
