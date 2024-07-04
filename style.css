@@ -49,6 +49,7 @@ img {
 .description h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: black;
 }
 
 .description p {
