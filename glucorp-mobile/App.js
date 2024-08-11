@@ -1,25 +1,25 @@
-import React from 'react';
-import { registerRootComponent } from 'expo';
-import { View, Text, StyleSheet } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import WelcomeScreen from './screens/WelcomeScreen';
+import SignUpLoginScreen from './screens/SignupLoginScreen';
+import DashboardScreen from './screens/DashboardScreen';
+import GlucoseLevelTracker from './screens/GlucoseTrackerScreen.js';
+import ProfileScreen from './screens/ProfileScreen';
 
-const App = () => {
+const Stack = createStackNavigator();
+
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Welcome to GlucoCorp Mobile App!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="SignUpLogin" component={SignUpLoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
+        <Stack.Screen name="GlucoseLevelTracker" component={GlucoseLevelTracker} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#006400',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
-
-registerRootComponent(App);
-
-export default App;
+}
 
