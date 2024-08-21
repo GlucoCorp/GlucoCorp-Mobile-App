@@ -1,1 +1,0 @@
-# GlucoCorp Mobile App

@@ -8,7 +8,7 @@ export default function WelcomeScreen({ navigation }) {
       <Text style={styles.subtitle}>Let's take care of you and your baby</Text>
       <TouchableOpacity 
         style={styles.Button} 
-        onPress={() => navigation.navigate('Dashboard')}
+        onPress={() => navigation.navigate('GlucoseLevelTracker')}
       >
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color:'white'
+    color:'white',
+    fontFamily: ''
   },
   subtitle: {
     fontSize: 16,
