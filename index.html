@@ -30,41 +30,69 @@
 	<title>GluCorp</title>
 
 	<style>
-		.icon-container {
-			position: fixed;
-			top: 860px;
-			/* Adjust as needed */
-			right: 20px;
-			/* Adjust as needed */
-			Z-index: 9999;
-			/* Ensure the icon container stays on top of other content */
-		}
+		.readables {
+            max-width: 400px;
+            margin: 50 50;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
 
-		.chatbot-icon,
-		.gift-indicator {
-			width: 50px;
-			/* Adjust size as needed */
-			height: 50px;
-			/* Adjust size as needed */
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
+        #please {
+            text-align: center;
+        }
 
-		.chatbot-icon {
-			z-index: 1;
-			/* Set chatbot icon lower than gift indicator */
-		}
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-		.gift-indicator {
-			z-index: 9999;
-			/* Ensure it appears on top of the chatbot icon */
-		}
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
 
-		.partners {
-			padding: 0px;
-		}
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        input[type="email"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .cta-button {
+            background-color: orangered;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: orangered;
+        }
+
+        @media (min-width: 768px) {
+            form {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            input[type="email"] {
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+        }
 		@-webkit-keyframes slideleft {
 			0% {
 				background-position: 385000px;
@@ -173,8 +201,8 @@
 			padding: 0 18px;
 			line-height: 44px;
 			width: 100%;
-			color: darken(mix(lime, green), 10%);
-			-webkit-text-fill-color: darken(mix(lime, green), 10%);
+			color: darken(mix(palevioletred, peru), 10%);
+			-webkit-text-fill-color: darken(mix(palevioletred, peru), 10%);
 			transition: 400ms ease all 0s;
 		}
 
@@ -186,7 +214,7 @@
 		#lead-capture input[type="email"]:focus {
 			outline: transparent;
 			box-shadow: inset 0 0 1px 1px fade(mix(#66BB6A, #66BB6A), 50%), inset 2px 0 15px fade(darkgreen, 33%);
-			color: darken(mix(lime, green), 10%);
+			color: darken(mix(palevioletred, peru), 10%);
 		}
 
 		#lead-capture input[type="email"]:focus::placeholder {
@@ -464,25 +492,13 @@
 		</script>
 		<!-- partial -->
 	</div>
-	<section class='partners'>
-
-		<div class='partners-img-container'>
-			<div class='partners-img'></div>
-		</div>
-	</section>
 
 
 
 	<div class="site-footer">
-		<div class="container">				
-
-			<div class="row mt-5">
-				<div class="col-12 text-center">
 					<p class="mb-0">Copyright &copy 2024 GluCorp. All rights reserved.
 					</p>
-				</div>
-			</div> <!-- /.container -->
-		</div> <!-- /.site-footer -->
+	</div> 
 
 		<!-- Preloader -->
 		<div id="overlayer"></div>
