@@ -13625,7 +13625,7 @@ textarea {
   font-weight: 700;
   position: absolute;
   top: 10px;
-  left: 300px; /* Default position */
+  left: 20px; /* Default position */
   margin: 10px;
 }
 
@@ -15428,8 +15428,6 @@ textarea {
   width: 100%;
   text-align: center;
   background-color: var(--bs-body-color);
-
-
 }
 
 
