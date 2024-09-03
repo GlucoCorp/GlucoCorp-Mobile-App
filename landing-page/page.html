@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GluCorp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="images/GluCRP.png" alt="GlucoCorp Logo">
+    </div>
+
+    <div class="container">
+        <div class="description">
+            <h1>Holistic care for you and your baby</h1>
+            <a href="#featuresVideoSection" class="cta-button" onclick="playVideo()">Click to Play</a>
+        </div>
+
+        <div class="media" id="featuresVideoSection">
+            <video id="featuresVideo" width="200" controlsList="nodownload">
+                <source src="images/prototype.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div id="about" class="about">
+        <h2>About Us</h2>
+        <p>GluCorp is a startup with a vision to transform healthcare through technology. 
+            Our risk and assessment app aims to make healthcare more accessible for pregnant mothers, reducing the need for frequent hospital visits during this critical time and enabling them to keep track of their health.
+
+            The app features a predictive model that screens for diabetes by closely monitoring blood glucose and blood pressure levels, allowing for early diagnosis. 
+            It also includes a real-time graph for tracking glucose levels, an interactive chatbot, and a library of articles designed to educate users about gestational diabetes.
+            
+        </p>
+    </div>
+
+    <div id="mission" class="mission">
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide affordable and accessible healthcare to pregnant mothers, 
+            ensuring that they have the support they need to have a healthy pregnancy and a healthy baby. 
+            We believe that every mother deserves the best care possible, and we are committed to making that care available to all.
+        </p>    
+        <h2>Our vision</h2>
+        <p>Our vision is to be the go-to platform for gestational diabetes management in Africa.</p>
+    </div>
+
+    <div id="subscription" class="subscription">
+        <h3>Enter email to be added to waitlist</h3>
+        <form name="contact" method="POST" data-netlify="true">
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+            <button type="submit" class="cta-button">Subscribe</button>
+        </form>
+    </div>
+
+    <footer id="footer">
+        <p>&copy; GlucoCorp 2024</p>
+    </footer>
+
+    <script>
+        function playVideo() {
+            document.getElementById('featuresVideo').play();
+        }
+    </script>
+</body>
+</html>
