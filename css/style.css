@@ -3547,8 +3547,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
   color: #000;
-  background-color: #66BB6A;
-  border-color: #66BB6A;
+  background-color: #e84393;
+  border-color: #e84393;
 }
 
 .btn-primary:hover {
@@ -13625,7 +13625,7 @@ textarea {
   font-weight: 700;
   position: absolute;
   top: 10px;
-  left: 300px; /* Default position */
+  left: 20px; /* Default position */
   margin: 10px;
 }
 
@@ -15423,76 +15423,11 @@ textarea {
 .site-footer {
   background: #66BB6A;
   font-size: 14px;
-  color: black;
+  color: var(--bs-white);
   padding: 10px 0;
   width: 100%;
+  text-align: center;
+  background-color: var(--bs-body-color);
 }
 
-.site-footer a {
-  color: #f17945;
-  position: relative;
-  display: inline-block;
-}
 
-.site-footer .btn:before {
-  display: none;
-}
-
-.site-footer .widget {
-  margin-bottom: 40px;
-  display: block;
-  position: relative;
-  z-index: 1;
-}
-
-.site-footer .widget h3,
-.site-footer .widget .h3 {
-  font-size: 16px;
-  color: #000;
-  margin-bottom: 30px;
-  font-weight: 700;
-}
-
-.site-footer .widget .links {
-  width: 150px;
-}
-
-.site-footer .widget .links li {
-  margin-bottom: 10px;
-}
-
-.site-footer .widget .links li a {
-  color: black;
-}
-
-.site-footer .social li {
-  display: inline-block;
-}
-
-.site-footer .social li a {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  background: black;
-  border-radius: 50%;
-  color: #fff;
-}
-
-.site-footer .social li a:before {
-  display: none;
-}
-
-.site-footer .social li a>span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.site-footer .social li a:hover {
-  background: #f59b74;
-  color: #fff;
-}

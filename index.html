@@ -30,41 +30,65 @@
 	<title>GluCorp</title>
 
 	<style>
-		.icon-container {
-			position: fixed;
-			top: 860px;
-			/* Adjust as needed */
-			right: 20px;
-			/* Adjust as needed */
-			Z-index: 9999;
-			/* Ensure the icon container stays on top of other content */
-		}
 
-		.chatbot-icon,
-		.gift-indicator {
-			width: 50px;
-			/* Adjust size as needed */
-			height: 50px;
-			/* Adjust size as needed */
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
+        #please {
+            text-align: center;
+			margin-right: 100px;
+			
+        }
 
-		.chatbot-icon {
-			z-index: 1;
-			/* Set chatbot icon lower than gift indicator */
-		}
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-		.gift-indicator {
-			z-index: 9999;
-			/* Ensure it appears on top of the chatbot icon */
-		}
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
 
-		.partners {
-			padding: 0px;
-		}
+        form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
+        input[type="email"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .cta-button {
+            background-color: var(--bs-body-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: orangered;
+        }
+
+        @media (min-width: 768px) {
+            form {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            input[type="email"] {
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+        }
 		@-webkit-keyframes slideleft {
 			0% {
 				background-position: 385000px;
@@ -127,7 +151,8 @@
 			overflow: hidden;
 			padding: 12px;
 			width: calc(100vw - 96px);
-			max-width: 800px;
+			max-width: 600px;
+			height: 400px;
 			margin: 48px auto;
 			gap: 36px;
 		}
@@ -159,22 +184,25 @@
 			color: mix(#66BB6A, lime);
 		}
 
+		
+
 		#lead-capture form {
 			border-radius: 12px;
 			display: flex;
+			align-items: center;
 		}
 
 		#lead-capture input[type="email"],
 		#lead-capture :-webkit-autofill {
 			border-radius: 12px;
 			background: whitesmoke;
-			box-shadow: whitesmoke;
+			box-shadow: grey;
 			border: none;
 			padding: 0 18px;
 			line-height: 44px;
 			width: 100%;
-			color: darken(mix(lime, green), 10%);
-			-webkit-text-fill-color: darken(mix(lime, green), 10%);
+			color: darken(mix(palevioletred, peru), 10%);
+			-webkit-text-fill-color: darken(mix(palevioletred, peru), 10%);
 			transition: 400ms ease all 0s;
 		}
 
@@ -186,7 +214,7 @@
 		#lead-capture input[type="email"]:focus {
 			outline: transparent;
 			box-shadow: inset 0 0 1px 1px fade(mix(#66BB6A, #66BB6A), 50%), inset 2px 0 15px fade(darkgreen, 33%);
-			color: darken(mix(lime, green), 10%);
+			color: darken(mix(palevioletred, peru), 10%);
 		}
 
 		#lead-capture input[type="email"]:focus::placeholder {
@@ -315,7 +343,7 @@
 							<li><a href="#about">About Us</a></li>
 							<li><a href="#mission">Mission</a></li>
 							<li><a href="#please">Waitlist</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
+							<!-- <li><a href="contact.html">Contact Us</a></li> -->
 
 
 						</ul>
@@ -426,63 +454,25 @@
 			<section class="readables">
 				<div id="please">
 					<h2>Impressed? Be the first to know when the app is out!</h2>
-					<h3>Join our waitlist to get early access to the app and exclusive updates on our progress.</h3>
+					<p>Join our waitlist to get early access to the app and exclusive updates on our progress.</p>
 						<form name="contact" method="POST" data-netlify="true">
 							<input type="email" name="email" id="email" placeholder="Enter your email">
 							<button type="submit" class="cta-button">Subscribe</button>
-					<span class="fine-print">
-						<div class="lock-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
-								<path
-									d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.355469 20 6 21.355469 6 23 L 6 47 C 6 48.644531 7.355469 50 9 50 L 41 50 C 42.644531 50 44 48.644531 44 47 L 44 23 C 44 21.355469 42.644531 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 9 22 L 41 22 C 41.554688 22 42 22.445313 42 23 L 42 47 C 42 47.554688 41.554688 48 41 48 L 9 48 C 8.445313 48 8 47.554688 8 47 L 8 23 C 8 22.445313 8.445313 22 9 22 Z M 25 30 C 23.300781 30 22 31.300781 22 33 C 22 33.898438 22.398438 34.6875 23 35.1875 L 23 38 C 23 39.101563 23.898438 40 25 40 C 26.101563 40 27 39.101563 27 38 L 27 35.1875 C 27.601563 34.6875 28 33.898438 28 33 C 28 31.300781 26.699219 30 25 30 Z" />
-							</svg>
-						</div>
-						By signing up you agree to receive emails from our business. We value your privacy and will
-						never share your information!
-					</span>
+						</form>
 				</div>
 			</section>
 		</section>
 		<br>
 		<br>
-		<script>
-			document.querySelector('#submit').addEventListener('click', function () {
-				var please = document.querySelector('#please');
-				var pleaseWidth = please.offsetWidth;
-				var pleaseHeight = please.offsetHeight;
-
-				var thanks = document.querySelector('#thanks');
-				thanks.style.width = pleaseWidth + 'px';
-				thanks.style.height = pleaseHeight + 'px';
-				thanks.style.opacity = '1';
-				thanks.style.zIndex = '1';
-
-				please.style.opacity = '0';
-				please.style.maxHeight = '0';
-				please.style.zIndex = '-1';
-			});
-		</script>
 		<!-- partial -->
 	</div>
-	<section class='partners'>
-
-		<div class='partners-img-container'>
-			<div class='partners-img'></div>
-		</div>
-	</section>
 
 
 
 	<div class="site-footer">
-		<div class="container">				
-
-			<div class="row mt-5">
-				<div class="col-12 text-center">
 					<p class="mb-0">Copyright &copy 2024 GluCorp. All rights reserved.
 					</p>
-				</div>
-			</div> <!-- /.container -->
-		</div> <!-- /.site-footer -->
+	</div> 
 
 		<!-- Preloader -->
 		<div id="overlayer"></div>
