@@ -109,207 +109,109 @@
 			}
 		}
 
-		.partners-img-container {
-			height: 40px;
-			width: 100%;
-			overflow: auto;
-		}
-
-		.partners-img-container::-webkit-scrollbar {
-			width: 0 !important
-		}
-
-		/* hide scrollbar in Chrome */
-		.partners-img-container {
-			scrollbar-width: none;
-		}
-
-		/* hide scrollbar in mozilla */
-		.partners-img-container {
-			-ms-overflow-style: none;
-		}
-
-		/* hide scrollbar in IE */
-
-		.partners-img-container .partners-img {
-			height: 100%;
-			width: 100%;
-			background: transparent url(images/partner.png) repeat-x 50% 0;
-			background-size: 500px;
-			-webkit-animation: slideleft 5000s linear infinite;
-			animation: slideleft 5000s linear infinite;
-			cursor: grab;
-		}
-
 		#lead-capture {
-			background: white;
-			box-shadow: white;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			border-radius: 24px;
-			overflow: hidden;
-			padding: 12px;
-			width: calc(100vw - 96px);
-			max-width: 600px;
-			height: 400px;
-			margin: 48px auto;
-			gap: 36px;
-		}
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 24px;
+    padding: 12px;
+    width: calc(100vw - 48px);
+    max-width: 600px;
+    margin: 24px auto;
+    gap: 16px;
+}
 
-		#lead-capture .visuals,
-		#lead-capture .readables {
-			width: 100%;
-		}
+#lead-capture .visuals {
+    background: url('images/Photo2.jfif') no-repeat center center;
+    background-size: cover;
+    border-radius: 12px;
+    width: 40%;
+}
 
-		#lead-capture .visuals {
-			background: url('images/Photo2.jfif') no-repeat center center;
-			background-size: cover;
-			border-radius: 12px;
-			width: 40%;
-		}
+#lead-capture .readables {
+    width: 60%;
+    padding: 16px;
+    display: flex; /* Center content inside .readables */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-		#lead-capture .readables {
-			width: 60%;
-			padding: 0 0 24px 24px;
-		}
+#lead-capture form {
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
 
-		#lead-capture .readables li {
-			list-style: '✔   ';
-			line-height: 1.75;
-			letter-spacing: 0.25px;
-		}
+#lead-capture input[type="email"] {
+    border-radius: 12px;
+    background: whitesmoke;
+    border: none;
+    padding: 0 18px;
+    line-height: 44px;
+    width: 100%;
+    color: #333;
+    transition: 400ms ease all;
+}
 
-		#lead-capture .readables li::marker {
-			color: mix(#66BB6A, lime);
-		}
+#lead-capture input[type="email"]::placeholder {
+    color: #999;
+}
 
-		
+#lead-capture button {
+    border-radius: 12px;
+    border: none;
+    background: gray;
+    padding: 0 18px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 400ms ease;
+	height: 44px;
+}
 
-		#lead-capture form {
-			border-radius: 12px;
-			display: flex;
-			align-items: center;
-		}
+#lead-capture button:hover {
+    background: peru;
+}
 
-		#lead-capture input[type="email"],
-		#lead-capture :-webkit-autofill {
-			border-radius: 12px;
-			background: whitesmoke;
-			box-shadow: grey;
-			border: none;
-			padding: 0 18px;
-			line-height: 44px;
-			width: 100%;
-			color: darken(mix(palevioletred, peru), 10%);
-			-webkit-text-fill-color: darken(mix(palevioletred, peru), 10%);
-			transition: 400ms ease all 0s;
-		}
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+    #lead-capture {
+        flex-direction: column;
+        padding: 16px;
+        gap: 16px;
+    }
 
-		#lead-capture input[type="email"]::placeholder {
-			color: fade(whitesmoke 50%);
-			transition: 400ms ease all 500ms;
-		}
+    #lead-capture .visuals {
+        width: 100%;
+        height: 200px; /* Adjust height for better aspect ratio */
+        border-radius: 12px;
+    }
 
-		#lead-capture input[type="email"]:focus {
-			outline: transparent;
-			box-shadow: inset 0 0 1px 1px fade(mix(#66BB6A, #66BB6A), 50%), inset 2px 0 15px fade(darkgreen, 33%);
-			color: darken(mix(palevioletred, peru), 10%);
-		}
+    #lead-capture .readables {
+        width: 100%;
+        padding: 16px;
+        text-align: center;
+    }
 
-		#lead-capture input[type="email"]:focus::placeholder {
-			color: fade(#66BB6A, 20%);
-		}
+    #lead-capture form {
+        flex-direction: column;
+        gap: 12px;
+    }
 
-		#lead-capture input[type="email"]:valid {
-			border-radius: 12px 0 0 12px;
-			transition: 400ms ease all 500ms;
-			box-shadow: inset 0 0 1px 1px fade(mix(#66BB6A), 50%), inset 2px 0 15px fade(darkgreen, 33%);
-		}
+    #lead-capture input[type="email"] {
+        line-height: 40px;
+    }
 
-		#lead-capture input[type="submit"] {
-			border-radius: 0 12px 12px 0;
-			border: none;
-			background: lighten(#66BB6A, 6%);
-			padding: 0;
-			width: 0;
-			opacity: 0;
-			color: #66BB6A;
-			font-weight: 600;
-			cursor: pointer;
-			transition: 400ms ease padding 0s, 400ms ease width 0s, 400ms ease opacity 0s, 400ms ease background 0s;
-		}
+    #lead-capture button {
+        width: 100%; /* Make button full width on mobile */
+    }
+}
 
-		#lead-capture input[type="email"]:valid~input[type="submit"] {
-			padding: 0 18px;
-			width: 120px;
-			opacity: 1;
-			transition: 400ms ease padding 500ms, 400ms ease width 500ms, 400ms ease opacity 500ms, 400ms ease background 0s;
-		}
-
-		#lead-capture input[type="email"]:valid~input[type="submit"]:hover {
-			background: lighten(#66BB6A, 10%);
-		}
-
-		#lead-capture span.fine-print {
-			opacity: 0.75;
-			display: block;
-			font-size: 12px;
-			letter-spacing: 0.25px;
-			margin: 18px 0 0;
-			position: relative;
-			text-align: center;
-			padding: 0 0 0 32px;
-			text-align: left;
-		}
-
-		#lead-capture span.fine-print div.lock-icon svg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 24px;
-			height: 24px;
-			opacity: 0.333;
-		}
-
-		#thanks {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: flex-start;
-			max-width: 100%;
-			height: 0;
-			opacity: 0;
-			z-index: -1;
-			transition: 400ms opacity 400ms;
-		}
-
-		@media screen and (max-width: 800px) {
-			#lead-capture {
-				margin: 24px;
-				flex-direction: row;
-			}
-
-			#lead-capture .visuals {
-				display: none;
-			}
-
-			#lead-capture .readables {
-				width: 100%;
-				padding-right: 24px;
-			}
-
-			#lead-capture span.fine-print {
-				max-width: 42ch;
-			}
-		}
-
-		#content-container {
-			display: flex;
-			align-items: center;
-			justify-content: start;
-		}
 	</style>
 </head>
 
