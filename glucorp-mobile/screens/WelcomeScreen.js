@@ -18,7 +18,7 @@ const WelcomeScreen = ({navigation}) => {
         </Svg>
         <View style={styles.orangeSection}>
         <Text style={styles.title}>GluCorp</Text>
-        <Text style={styles.subtitle}>Holistic care for mothers and babies</Text>
+        <Text style={styles.subtitle}>Holistic care for you and your baby</Text>
           <Text
             style={styles.getStarted}>Get started
           </Text>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
   button: {
-    backgroundColor: 'orange',
+    backgroundColor: '#ffb6c1',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
