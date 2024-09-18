@@ -31,6 +31,7 @@ styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: 'black',
+    borderRadius: 20
   },
   loginButton: {
     backgroundColor: 'blue',
