@@ -16,9 +16,10 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.glucorp.mobileapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff" 
       }
     },
     "web": {
