@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; // Make sure to install expo-vector-icons
+import { createUser } from '../lib/appwrite';
 
 const SignUpScreen = ({navigation}) => {
   return (
@@ -19,7 +20,7 @@ const SignUpScreen = ({navigation}) => {
       <TextInput
         style={styles.input}
         placeholder="Email address"
-        keyboardType="email-address"
+        keyboardType="email"
       />
       <TextInput
         style={styles.input}
@@ -27,7 +28,7 @@ const SignUpScreen = ({navigation}) => {
         secureTextEntry
       />
       
-      <TouchableOpacity style={styles.signUpButton}>
+      <TouchableOpacity style={styles.signUpButton} onPress={createUser}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableOpacity>
       
@@ -58,7 +59,7 @@ const SignUpScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightgray",
+    backgroundColor: "white",
     padding: 20,
     justifyContent: 'center',
     width: '100%'
@@ -78,22 +79,26 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     marginBottom: 30,
-    borderColor: "black"
+    borderColor: "black",
+    borderWidth: 1
  },
   signUpButton: {
     backgroundColor: '#FFC107',
     padding: 15,
     borderRadius: 20,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: "#FFC107"
   },
   signUpButtonText: {
     color: 'white',
     fontWeight: 'bold',
   },
   orText: {
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     marginVertical: 10,
+    fontWeight: "bold"
   },
   socialLoginContainer: {
     flexDirection: 'row',
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   socialButton: {
-    backgroundColor: 'white',
+    backgroundColor: 'grey',
     borderRadius: 20,
     padding: 10,
     marginHorizontal: 10,
@@ -109,10 +114,12 @@ const styles = StyleSheet.create({
   loginText: {
     color: 'black',
     textAlign: 'center',
+    fontWeight: "bold"
   },
   loginLink: {
     color: "orange",
-    textAlign: "center"
+    textAlign: "center",
+    fontWeight: "bold"
   }
 });
 
