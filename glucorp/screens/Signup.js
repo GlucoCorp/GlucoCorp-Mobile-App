@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; // Make sure to install expo-vector-icons
 import { createUser } from '../lib/appwrite';
 
-const SignUpScreen = ({navigation}) => {
+const SignUpScreen = ({navigation}) => { const [user, setUser] = useState({ email: '', password: '', name: '', });
+
+  const handleSignUp = async () => {
+    if (!fullName || !email || !password) {
+      Alert.alert('Error', 'Please fill in all fields');
+      return;
+    }
+
+    try {
+      const newUser = await createUser(email, password, fullName);
+      console.log('User created:', newUser);
+      Alert.alert('Success', 'Account created successfully!', [
+        { text: 'OK', onPress: () => navigation.navigate('Login') }
+      ]);
+    } catch (error) {
+      console.error('Sign up error:', error);
+      Alert.alert('Error', 'Failed to create account. Please try again.');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
@@ -13,19 +32,21 @@ const SignUpScreen = ({navigation}) => {
         />
       </View>
       
-      <TextInput
-        style={styles.input}
-        placeholder="Full name"
+      <TextInput 
+        style = {styles.input}
+        placeholder="Name" 
+        onChangeText={value => { setUser({ ...user, name: value }); }} 
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Email address"
-        keyboardType="email"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
+     <TextInput 
+      style = {styles.input}
+      placeholder="Email" 
+      autoCapitalize="none" 
+      onChangeText={value => { setUser({ ...user, email: value }); }} 
+     />
+      <TextInput 
+        style = {styles.input}
+        placeholder="Password" 
+        onChangeText={value => { setUser({ ...user, password: value }); }} secureTextEntry 
       />
       
       <TouchableOpacity style={styles.signUpButton} onPress={createUser}>

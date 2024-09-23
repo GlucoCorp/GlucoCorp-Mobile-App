@@ -6,8 +6,17 @@ export default function LoginScreen({ navigation }) {
     <View style={styles.container}>
       <Text>Welcome!</Text>
       <Text>Sign in to continue</Text>
-      <TextInput style={styles.input} placeholder="Email" />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
+      <TextInput 
+      style = {styles.input}
+      placeholder="Email" 
+      autoCapitalize="none" 
+      onChangeText={value => { setUser({ ...user, email: value }); }} 
+     />
+      <TextInput 
+        style = {styles.input}
+        placeholder="Password" 
+        onChangeText={value => { setUser({ ...user, password: value }); }} secureTextEntry 
+      />
       <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Dashboard')}> 
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
