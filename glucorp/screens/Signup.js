@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; // Make sure to install expo-vector-icons
+import { createUser } from '../lib/appwrite';
 
 const SignUpScreen = ({navigation}) => {
   return (
@@ -19,7 +20,7 @@ const SignUpScreen = ({navigation}) => {
       <TextInput
         style={styles.input}
         placeholder="Email address"
-        keyboardType="email-address"
+        keyboardType="email"
       />
       <TextInput
         style={styles.input}
@@ -27,7 +28,7 @@ const SignUpScreen = ({navigation}) => {
         secureTextEntry
       />
       
-      <TouchableOpacity style={styles.signUpButton}>
+      <TouchableOpacity style={styles.signUpButton} onPress={createUser}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableOpacity>
       
