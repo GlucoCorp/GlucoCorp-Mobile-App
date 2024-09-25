@@ -4,8 +4,8 @@ import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'reac
 export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Welcome!</Text>
-      <Text>Sign in to continue</Text>
+      <Text style={ styles.headerText }>Welcome!</Text>
+      <Text style={ styles.subtitleText }>Sign in to continue</Text>
       <TextInput 
       style = {styles.input}
       placeholder="Email" 
@@ -32,7 +32,19 @@ styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "white"
+    backgroundColor: "#000000"
+  },
+  headerText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    alignItems: "left",
+    color: "#ffffff"
+  },
+  subtitleText: {
+     fontSize: 20,
+     fontWeight: "bold",
+     alignItems: "left",
+     color: "orange"
   },
   input: {
     width: 300,
@@ -40,21 +52,33 @@ styles = StyleSheet.create({
     margin: 12,
     padding: 10,
     borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 20
+    borderColor: 'white',
+    borderRadius: 20,
+    backgroundColor: "#ffffff",
+    color: "#000000"
   },
   loginButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#FFC107',
     padding: 10,
     margin: 10,
+    width: 200,
+    height: 45,
+    borderRadius: 20,
+    alignItems: "center",
+    marginTop: 100,
+    marginBotto:30
   },
   signupButton: {
-    backgroundColor: 'green',
+    backgroundColor: '#FFC107',
     padding: 10,
     margin: 10,
+    width: 200,
+    height: 50,
+    borderRadius: 20,
+    alignItems: "center"
   },
   buttonText: {
-    color: 'white',
+    color: '#000000',
     fontSize: 20,
   },
 });

@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 const { width } = Dimensions.get('window');
 
-export default function Questionnaire() {
+export default function Questionnaire({ navigation }) {
   const [user, setUser] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
   const [otherAllergy, setOtherAllergy] = useState('');
@@ -111,13 +111,13 @@ export default function Questionnaire() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <Text style={styles.headerText}>{headerTexts[currentPage]}</Text>
         <TouchableOpacity
                   onPress={() => navigation.navigate('Dashboard')} // Navigate to the Dashboard
                   style={styles.headerArrow}
                 >
-                <AntDesign name="rightcircleo" size={24} color="white" />
+                <AntDesign name="rightcircleo" size={30} color="white"/>
          </TouchableOpacity>
-        <Text style={styles.headerText}>{headerTexts[currentPage]}</Text>
       </View>
       {renderProgressBar()}
       <ScrollView
@@ -165,17 +165,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
   },
   header: {
-    alignItems: 'left',
+    justifyContent: "space-between",
     paddingTop: 40,
     paddingBottom: 40,
     fontSize: 20,
     fontWeight: 'bold',
-    marginTop: 30
+    marginTop: 30,
+    flexDirection: "row"
   },
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#ffffff',
+  },
+  headerArrow: {
+    justifyContent: "flex-start"
   },
   progressBarContainer: {
     height: 5,
