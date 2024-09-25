@@ -6,7 +6,7 @@ import { createUser } from '../lib/appwrite';
 const SignUpScreen = ({navigation}) => { const [user, setUser] = useState({ email: '', password: '', name: '', });
 
   const handleSignUp = async () => {
-    if (!fullName || !email || !password) {
+    if (!fullName.trim() || !email.trim() || !password.trim()) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
