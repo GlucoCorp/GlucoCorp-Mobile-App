@@ -1,9 +1,24 @@
 import React from "react";
-import { View, Stylesheet, Text, TextInput, TouchableOpacity, } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, } from "react-native";
 
-export default Dashboard({  navigation  }){
+export default function Dashboard({  navigation  }){
     return(
         <View style={styles.container}>
-        <Text style={styles.headerText}>Welcome {profile.name}</Text>
+            <Text style={styles.headerText}>Welcome</Text>
+        </View>
     )
-}
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#000000'
+
+    },
+    headerText: {
+        alignItems: 'left',
+        color: 'white',
+
+    }
+
+});
