@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 const { width } = Dimensions.get('window');
 
 export default function Questionnaire() {
@@ -110,7 +111,12 @@ export default function Questionnaire() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.topBar} />
+        <TouchableOpacity
+                  onPress={() => navigation.navigate('Dashboard')} // Navigate to the Dashboard
+                  style={styles.headerArrow}
+                >
+                <AntDesign name="rightcircleo" size={24} color="white" />
+         </TouchableOpacity>
         <Text style={styles.headerText}>{headerTexts[currentPage]}</Text>
       </View>
       {renderProgressBar()}
@@ -221,6 +227,9 @@ const styles = StyleSheet.create({
   },
   choiceText: {
     fontSize: 16,
-    color: '#333',
+    color: '#708090',
   },
+  headerArrow: {
+    alignItems: "right"
+  }
 });
