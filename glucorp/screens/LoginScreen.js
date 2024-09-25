@@ -1,14 +1,23 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
-export default function LoginScreen({ navigation }) {
+export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Welcome!</Text>
       <Text>Sign in to continue</Text>
-      <TextInput style={styles.input} placeholder="Email" />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
-      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Dashboard')}> 
+      <TextInput 
+      style = {styles.input}
+      placeholder="Email" 
+      autoCapitalize="none" 
+      onChangeText={value => { setUser({ ...user, email: value }); }} 
+     />
+      <TextInput 
+        style = {styles.input}
+        placeholder="Password" 
+        onChangeText={value => { setUser({ ...user, password: value }); }} secureTextEntry 
+      />
+      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Questionnaire')}> 
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.signupButton} onPress={() => navigation.navigate('SignUp')}>
@@ -23,6 +32,7 @@ styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: "white"
   },
   input: {
     width: 300,
