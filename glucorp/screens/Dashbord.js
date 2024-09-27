@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: '#F5F6FA',
+    backgroundColor: '#ffffff',
   },
   header: {
     flexDirection: 'row',
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   optionButton: {
     width: '48%',
-    backgroundColor: '#FFF',
+    backgroundColor: '#D94F70',
     paddingVertical: 20,
     borderRadius: 12,
     alignItems: 'center',
