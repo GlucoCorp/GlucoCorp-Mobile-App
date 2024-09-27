@@ -80,7 +80,7 @@ const SignUpScreen = ({navigation}) => { const [user, setUser] = useState({ emai
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000000",
+    backgroundColor: "#D94F70",
     padding: 20,
     justifyContent: 'center',
     width: '100%'
@@ -104,12 +104,12 @@ const styles = StyleSheet.create({
     borderWidth: 1
  },
   signUpButton: {
-    backgroundColor: '#FFC107',
+    backgroundColor: '#000000',
     padding: 15,
     borderRadius: 20,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#FFC107"
+    borderColor: "#000000"
   },
   signUpButtonText: {
     color: 'white',
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   loginLink: {
-    color: "orange",
+    color: "#000000",
     textAlign: "center",
     fontWeight: "bold"
   }

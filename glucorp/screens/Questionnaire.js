@@ -15,7 +15,6 @@ export default function Questionnaire({ navigation }) {
     "Let's Start...",
     "You're Doing Great...",
     "You're Doing Great...",
-    "You're Doing Great...",
     "Almost Done...",
     "One More To Go...",
     "And We Are Done..."
@@ -116,7 +115,7 @@ export default function Questionnaire({ navigation }) {
                   onPress={() => navigation.navigate('Dashboard')} // Navigate to the Dashboard
                   style={styles.headerArrow}
                 >
-                <AntDesign name="rightcircleo" size={30} color="white"/>
+                <AntDesign name="rightcircleo" size={30} color="black"/>
          </TouchableOpacity>
       </View>
       {renderProgressBar()}
@@ -162,24 +161,24 @@ export default function Questionnaire({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: 'hsl(360 100% 100%)',
   },
   header: {
     justifyContent: "space-between",
     paddingTop: 40,
     paddingBottom: 40,
-    fontSize: 20,
     fontWeight: 'bold',
     marginTop: 30,
     flexDirection: "row"
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#000000',
   },
   headerArrow: {
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    marginRight: 30
   },
   progressBarContainer: {
     height: 5,
@@ -188,7 +187,7 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     height: '100%',
-    backgroundColor: 'pink',
+    backgroundColor: '#D94F70',
   },
   questionContainer: {
     width: width,
@@ -197,11 +196,11 @@ const styles = StyleSheet.create({
     alignItems: 'left',
   },
   questionText: {
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'left',
-    color: '#708090',
+    color: '#000000',
   },
   input: {
     width: 250,
@@ -209,17 +208,17 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: '#ddd',
-    borderRadius: 20,
+    borderRadius: 10,
     color: '#333',
     marginBottom: 20,
   },
   choiceButton: {
-    width: 200,
+    width: "80%",
     height: 50,
     padding: 10,
     borderWidth: 1,
     borderColor: '#ddd',
-    borderRadius: 20,
+    borderRadius: 10,
     marginBottom: 10,
     backgroundColor: '#ffffff',
     alignItems: 'center',
@@ -231,9 +230,6 @@ const styles = StyleSheet.create({
   },
   choiceText: {
     fontSize: 16,
-    color: '#708090',
-  },
-  headerArrow: {
-    alignItems: "right"
+    color: '#000000',
   }
 });
