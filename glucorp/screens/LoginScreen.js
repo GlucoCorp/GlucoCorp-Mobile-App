@@ -69,7 +69,7 @@ styles = StyleSheet.create({
      fontSize: 20,
      fontWeight: "bold",
      alignItems: "left",
-     color: "orange",
+     color: "#ffffff",
      marginBottom: 20
   },
   socialLoginContainer: {

@@ -58,22 +58,22 @@ const Dashboard = () => {
       <Text style={styles.optionsTitle}>What do you need?</Text>
       <View style={styles.optionsGrid}>
         <TouchableOpacity style={[styles.optionButton, styles.diagnosis]}>
-          <Text style={styles.optionText}>Diagnosis</Text>
+          <Text style={styles.optionText}>Model Prediction</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Shots</Text>
+          <Text style={styles.optionText}>Glucose Tracking</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Consultation</Text>
+          <Text style={styles.optionText}>Chatbot</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Ambulance</Text>
+          <Text style={styles.optionText}>Baby Development</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.optionButton, styles.home]}>
           <Text style={styles.optionText}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton}>
-          <Text style={styles.optionText}>Lab Work</Text>
+          <Text style={styles.optionText}>Find a Doctor</Text>
         </TouchableOpacity>
       </View>
     </View>
