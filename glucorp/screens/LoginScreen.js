@@ -1,12 +1,31 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={ styles.headerText }>Welcome!</Text>
-      <Text style={ styles.subtitleText }>Sign in to continue</Text>
-      <TextInput 
+      <Text style={ styles.subtitleText }>Login With</Text>
+      <View style={styles.socialLoginContainer}>
+          <TouchableOpacity style={styles.socialButton}>
+             <AntDesign name="google" size={24} color="red" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+             <AntDesign name="apple1" size={24} color="black" />
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.socialButton}>
+              <AntDesign name="facebook-square" size={24} color="blue" />
+           </TouchableOpacity>
+       </View>
+       <View style={{flexDirection: 'row', alignItems: 'center'}}>
+         <View style={{flex: 1, height: 1, margin: 30, backgroundColor: 'black'}} />
+         <View>
+           <Text style={{width: 20, textAlign: 'center'}}>Or</Text>
+         </View>
+         <View style={{flex: 1, height: 1, margin:30, backgroundColor: 'black'}} />
+       </View>
+      <TextInput
       style = {styles.input}
       placeholder="Email" 
       autoCapitalize="none" 
@@ -20,8 +39,14 @@ export default function Login({ navigation }) {
       <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Questionnaire')}> 
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.signupButton} onPress={() => navigation.navigate('SignUp')}>
-        <Text style={styles.buttonText}>Signup</Text>
+      <Text style={styles.accText}>
+           Forgot Password?
+       </Text>
+      <Text style={styles.accText}>
+          Don't Have an Account?
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
+          <Text style={styles.loginLink}>Create Account</Text>
       </TouchableOpacity>
     </View>
   );
@@ -32,20 +57,36 @@ styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "#000000"
+    backgroundColor: "#D94F70"
   },
   headerText: {
     fontSize: 30,
     fontWeight: "bold",
-    alignItems: "left",
-    color: "#ffffff"
+    color: "#ffffff",
+    marginBottom: 100
   },
   subtitleText: {
      fontSize: 20,
      fontWeight: "bold",
      alignItems: "left",
-     color: "orange"
+     color: "#ffffff",
+     marginBottom: 20
   },
+  socialLoginContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 20,
+   },
+   socialButton: {
+       backgroundColor: 'white',
+       borderRadius: 20,
+       padding: 10,
+       marginHorizontal: 10,
+   },
+   orText: {
+    fontWeight: "bold",
+    marginTop: 20
+   },
   input: {
     width: 300,
     height: 40,
@@ -58,27 +99,26 @@ styles = StyleSheet.create({
     color: "#000000"
   },
   loginButton: {
-    backgroundColor: '#FFC107',
+    backgroundColor: '#000000',
     padding: 10,
     margin: 10,
-    width: 200,
+    width: 300,
     height: 45,
     borderRadius: 20,
     alignItems: "center",
     marginTop: 100,
     marginBotto:30
   },
-  signupButton: {
-    backgroundColor: '#FFC107',
-    padding: 10,
-    margin: 10,
-    width: 200,
-    height: 50,
-    borderRadius: 20,
-    alignItems: "center"
-  },
   buttonText: {
-    color: '#000000',
-    fontSize: 20,
+    color: "#ffffff",
+    fontWeight: "bold"
   },
+  accText: {
+    color: "#ffffff",
+    fontWeight: "bold"
+  },
+  loginLink: {
+    color: "orange",
+
+  }
 });
