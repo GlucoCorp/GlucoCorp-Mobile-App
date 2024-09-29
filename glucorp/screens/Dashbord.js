@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Avatar } from 'react-native-elements';
+import { launchImageLibrary } from 'react-native-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Dashboard = () => {
+const Dashboard = ({ navigation }) => {
   // State to store the user's name
   const [userName, setUserName] = useState('');
 
@@ -25,14 +28,13 @@ const Dashboard = () => {
     <View style={styles.container}>
       {/* Header Section */}
       <View style={styles.header}>
-        <Image source={{ uri: 'https://via.placeholder.com/50' }} style={styles.profilePic} />
         <View style={styles.greeting}>
           <Text style={styles.helloText}>Hello,</Text>
           {/* Dynamically display the registered user's name */}
           <Text style={styles.nameText}>{userName}!</Text>
         </View>
-        <TouchableOpacity style={styles.menuButton}>
-          <Image source={{ uri: 'https://via.placeholder.com/30' }} style={styles.menuIcon} />
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+             <Image source={{ uri: 'https://via.placeholder.com/50' }} style={styles.profilePic} />
         </TouchableOpacity>
       </View>
 
@@ -44,9 +46,9 @@ const Dashboard = () => {
       {/* Notification Section */}
       <View style={styles.notificationCard}>
         <View style={styles.notificationContent}>
-          <Text style={styles.notificationTitle}>Stay home!</Text>
+          <Text style={styles.notificationTitle}>Need Help?</Text>
           <Text style={styles.notificationMessage}>
-            Schedule an e-visit and discuss the plan with a doctor.
+            Worry no more! Here to help with your pregnancy journey.
           </Text>
         </View>
         <TouchableOpacity style={styles.closeButton}>
@@ -96,10 +98,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
+    alignItems: "flex-end"
   },
   greeting: {
     flex: 1,
     marginLeft: 10,
+    alignItems: "flex-start"
   },
   helloText: {
     fontSize: 18,
