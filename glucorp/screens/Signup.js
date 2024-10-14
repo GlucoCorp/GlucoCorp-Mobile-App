@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; // Make sure to install expo-vector-icons
-import { createUser } from '../lib/appwrite';
+import supabase from '../lib/supabase.ts'; // Ensure the path is correct
 
-const SignUpScreen = ({navigation}) => { const [user, setUser] = useState({ email: '', password: '', name: '', });
+const SignUpScreen = ({ navigation }) => {
+  const [user, setUser] = useState({ email: '', password: '', name: '' });
 
-  const handleSignUp = async () => {
-    if (!fullName.trim() || !email.trim() || !password.trim()) {
-      Alert.alert('Error', 'Please fill in all fields');
-      return;
+  async function signUpwithEmail() {
+    const { email, password, name } = user; // Destructure user to get email, password, name
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { name }, // Store the name in user metadata
+      },
+    });
+
+    if (error) {
+      Alert.alert('Error', error.message);
+    } else {
+      Alert.alert('Success', 'Account created successfully!');
+      navigation.navigate('Login'); // Redirect to Login screen after sign up
     }
-
-    try {
-      const newUser = await createUser(email, password, fullName);
-      console.log('User created:', newUser);
-      Alert.alert('Success', 'Account created successfully!', [
-        { text: 'OK', onPress: () => navigation.navigate('Login') }
-      ]);
-    } catch (error) {
-      console.error('Sign up error:', error);
-      Alert.alert('Error', 'Failed to create account. Please try again.');
-    }
-  };
+  }
 
   return (
     <View style={styles.container}>
@@ -31,30 +32,31 @@ const SignUpScreen = ({navigation}) => { const [user, setUser] = useState({ emai
           style={styles.avatar}
         />
       </View>
-      
-      <TextInput 
-        style = {styles.input}
-        placeholder="Name" 
-        onChangeText={value => { setUser({ ...user, name: value }); }} 
+
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        onChangeText={(value) => setUser({ ...user, name: value })}
       />
-     <TextInput 
-      style = {styles.input}
-      placeholder="Email" 
-      autoCapitalize="none" 
-      onChangeText={value => { setUser({ ...user, email: value }); }} 
-     />
-      <TextInput 
-        style = {styles.input}
-        placeholder="Password" 
-        onChangeText={value => { setUser({ ...user, password: value }); }} secureTextEntry 
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        autoCapitalize="none"
+        onChangeText={(value) => setUser({ ...user, email: value })}
       />
-      
-      <TouchableOpacity style={styles.signUpButton} onPress={createUser}>
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        onChangeText={(value) => setUser({ ...user, password: value })}
+      />
+
+      <TouchableOpacity style={styles.signUpButton} onPress={signUpwithEmail}>
         <Text style={styles.signUpButtonText}>Sign Up</Text>
       </TouchableOpacity>
-      
+
       <Text style={styles.orText}>Or</Text>
-      
+
       <View style={styles.socialLoginContainer}>
         <TouchableOpacity style={styles.socialButton}>
           <AntDesign name="google" size={24} color="red" />
@@ -66,10 +68,8 @@ const SignUpScreen = ({navigation}) => { const [user, setUser] = useState({ emai
           <AntDesign name="facebook-square" size={24} color="blue" />
         </TouchableOpacity>
       </View>
-      
-      <Text style={styles.loginText}>
-        Already have an account?{' '}
-      </Text>
+
+      <Text style={styles.loginText}>Already have an account?{' '}</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.loginLink}>Log in</Text>
       </TouchableOpacity>
@@ -83,12 +83,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#D94F70",
     padding: 20,
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
   },
-  
   avatarContainer: {
     alignItems: 'center',
-    marginBottom: 50
+    marginBottom: 50,
   },
   avatar: {
     width: 100,
@@ -101,15 +100,15 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 30,
     borderColor: "black",
-    borderWidth: 1
- },
+    borderWidth: 1,
+  },
   signUpButton: {
     backgroundColor: '#000000',
     padding: 15,
     borderRadius: 20,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#000000"
+    borderColor: "#000000",
   },
   signUpButtonText: {
     color: 'white',
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textAlign: 'center',
     marginVertical: 10,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   socialLoginContainer: {
     flexDirection: 'row',
@@ -135,13 +134,13 @@ const styles = StyleSheet.create({
   loginText: {
     color: '#ffffff',
     textAlign: 'center',
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   loginLink: {
     color: "#000000",
     textAlign: "center",
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });
 
 export default SignUpScreen;
