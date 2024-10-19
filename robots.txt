@@ -1,8 +1,9 @@
 User-agent: rogerbot
-Disallow: 
+Disallow:
 
 User-agent: *
-Disallow: /
+Disallow:
 
 Sitemap: https://glucorp.org/sitemap.xml
+
 
