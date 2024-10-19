@@ -8,6 +8,7 @@ import LoginScreen from './screens/LoginScreen'; // Correct component import
 import Questionnaire from './screens/Questionnaire';
 import Dashboard from './screens/Dashbord';
 import Profile from './screens/Profile';
+import EmailVerification from './screens/EmailVerification';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ function App() {
         <Stack.Screen name="Questionnaire" component={Questionnaire} options={{ headerShown: false }} />
         <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: false}}  />
         <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}  />
+        <Stack.Screen name="EmailVerification" component={EmailVerification} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
