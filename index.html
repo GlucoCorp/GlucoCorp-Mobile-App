@@ -37,11 +37,25 @@
 	<link rel="stylesheet" href="css/flatpickr.min.css">
 	<link rel="stylesheet" href="css/glightbox.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Organization",
+		  "name": "GluCorp",
+		  "url": "https://www.glucorp.org",
+		  "logo": "https://www.glucorp.org/images/GluCRP.png",
+		  "description": "GluCorp is transforming prenatal and postnatal care for pregnant mothers in Africa through innovative technology.",
+		  "sameAs": [
+			"https://www.facebook.com/GluCorp",
+			"https://x.com/GluCorp_/",
+			"https://www.linkedin.com/company/glucorp_co/"
+		  ]
+		}
+		</script>
 
-	<title>Transforming Healthcare for Pregnant Mothers in Africa</title>
+	<title>GluCorp - Transforming Prenatal and Postnatal Care for Pregnant Mothers</title>
 
 	<style>
-
         #please {
             text-align: center;
 			margin-right: 100px;
@@ -88,6 +102,42 @@
         .cta-button:hover {
             background-color: orangered;
         }
+
+		#social-media {
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add padding around the section */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#social-media h2 {
+    font-size: 24px; /* Adjust heading size */
+    margin-bottom: 15px; /* Space below the heading */
+    color: #333; /* Dark text color */
+}
+
+#social-media ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the icons */
+    gap: 20px; /* Space between icons */
+}
+
+#social-media a {
+    display: inline-block; /* Make the link a block for better click area */
+}
+
+#social-media img {
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+#social-media a:hover img {
+    transform: scale(1.2); /* Enlarge icon on hover */
+}
 
         @media (min-width: 768px) {
             form {
@@ -252,7 +302,7 @@
 							<li><a href="#about">About Us</a></li>
 							<li><a href="#mission">Mission</a></li>
 							<li><a href="#please">Waitlist</a></li>
-							<!-- <li><a href="contact.html">Contact Us</a></li> -->
+							<li><a href="#social-media">Contact Us</a></li>
 
 
 						</ul>
@@ -389,9 +439,32 @@
 		<br>
 		<!-- partial -->
 	</div>
-
-
-
+	<div id="social-media">
+		<h2>Connect With Us</h2>
+		<ul>
+			<li>
+				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+					<img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="Facebook Icon"  />
+				</a>
+			</li>
+			<li>
+				<a href="https://x.com/GluCorp_/" target="_blank" rel="noopener noreferrer">
+					<img src="https://img.icons8.com/?size=100&id=ClbD5JTFM7FA&format=png&color=000000" alt="X Icon" />
+				</a>
+			</li>
+			<li>
+				<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+					<img src="https://img.icons8.com/?size=100&id=32323&format=png&color=000000" alt="Instagram Icon" />
+				</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/company/glucorp_co/" target="_blank" rel="noopener noreferrer">
+					<img src="https://img.icons8.com/?size=100&id=114445&format=png&color=000000" alt="LinkedIn Icon" />
+				</a>
+			</li>
+		</ul>
+	</div>
+	
 	<div class="site-footer">
 					<p class="mb-0">Copyright &copy 2024 GluCorp. All rights reserved.
 					</p>
