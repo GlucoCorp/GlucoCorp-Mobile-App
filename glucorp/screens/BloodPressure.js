@@ -10,26 +10,30 @@ import {
 } from 'react-native';
 import { supabase } from '../lib/supabase';
 
-export default function GlucoseMonitor() {
-  const [reading, setReading] = useState('');
+export default function BloodPressure() {
+  const [systolic, setSystolic] = useState('');
+  const [diastolic, setDiastolic] = useState('');
   const [readings, setReadings] = useState([]);
 
   const saveReading = async () => {
-    if (!reading || isNaN(parseFloat(reading))) {
-      Alert.alert('Error', 'Please enter a valid number');
+    if (!systolic || !diastolic || isNaN(parseFloat(systolic)) || isNaN(parseFloat(diastolic))) {
+      Alert.alert('Error', 'Please enter valid numbers');
       return;
     }
 
     try {
       const { error } = await supabase
-        .from('glucose_readings')
-        .insert([
-          { value: parseFloat(reading), timestamp: new Date().toISOString() }
-        ]);
+        .from('blood_pressure')
+        .insert([{
+          systolic: parseFloat(systolic),
+          diastolic: parseFloat(diastolic),
+          timestamp: new Date().toISOString()
+        }]);
 
       if (error) throw error;
       
-      setReading('');
+      setSystolic('');
+      setDiastolic('');
       fetchReadings();
       Alert.alert('Success', 'Reading saved successfully');
     } catch (error) {
@@ -40,7 +44,7 @@ export default function GlucoseMonitor() {
   const fetchReadings = async () => {
     try {
       const { data, error } = await supabase
-        .from('glucose_readings')
+        .from('blood_pressure')
         .select('*')
         .order('timestamp', { ascending: false })
         .limit(10);
@@ -61,9 +65,16 @@ export default function GlucoseMonitor() {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Enter glucose reading (mg/dL)"
-          value={reading}
-          onChangeText={setReading}
+          placeholder="Systolic (top number)"
+          value={systolic}
+          onChangeText={setSystolic}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Diastolic (bottom number)"
+          value={diastolic}
+          onChangeText={setDiastolic}
           keyboardType="numeric"
         />
         <TouchableOpacity style={styles.button} onPress={saveReading}>
@@ -76,7 +87,7 @@ export default function GlucoseMonitor() {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.readingItem}>
-            <Text style={styles.readingValue}>{item.value} mg/dL</Text>
+            <Text style={styles.readingValue}>{item.systolic}/{item.diastolic} mmHg</Text>
             <Text style={styles.readingDate}>
               {new Date(item.timestamp).toLocaleString()}
             </Text>
