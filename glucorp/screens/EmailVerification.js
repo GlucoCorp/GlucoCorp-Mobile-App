@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import supabase from '../lib/supabase.ts';
+/* import supabase from '../lib/supabase.ts'; */
 
 // Define the EmailVerification component as a constant
 const EmailVerification = ({ navigation }) => {

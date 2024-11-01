@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import supabase  from '../lib/supabase.ts'; // Adjust the path accordingly
+/* import supabase  from '../lib/supabase.ts'; // Adjust the path accordingly */
 
 export default function Login({ navigation }) {
   const [user, setUser] = useState({ email: '', password: '' });

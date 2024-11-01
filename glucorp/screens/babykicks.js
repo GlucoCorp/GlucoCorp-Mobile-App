@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
-import { supabase } from '../lib/supabase';
+/* import { supabase } from '../lib/supabase'; */
 
 export default function BabyKicks() {
   const [isRecording, setIsRecording] = useState(false);

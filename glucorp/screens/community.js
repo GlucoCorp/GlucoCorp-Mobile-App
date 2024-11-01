@@ -11,7 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function Community() {
   const handleJoinCommunity = async () => {
-    const whatsappUrl = 'https://chat.whatsapp.com/your-group-invite-link';
+    const whatsappUrl = 'https://chat.whatsapp.com/L404sFO9JD82DVjgFPbLNz';
     
     try {
       const supported = await Linking.canOpenURL(whatsappUrl);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert, ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import supabase from '../lib/supabase'; // Ensure the path is correct
+/* import supabase from '../lib/supabase'; // Ensure the path is correct */
 
 const SignUpScreen = ({ navigation }) => {
   const [user, setUser] = useState({ email: '', password: '', name: '' });
@@ -143,7 +143,7 @@ const SignUpScreen = ({ navigation }) => {
       </View>
 
       <Text style={styles.loginText}>Already have an account?{' '}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
         <Text style={styles.loginLink}>Log in</Text>
       </TouchableOpacity>
     </ScrollView>
