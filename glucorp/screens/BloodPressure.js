@@ -9,7 +9,7 @@ import {
   Alert,
   SafeAreaView,
 } from 'react-native';
-/* import { supabase } from '../lib/supabase'; */
+import { supabase } from '../lib/supabase'; // Import the supabase client
 
 export default function BloodPressure() {
   const [systolic, setSystolic] = useState('');
