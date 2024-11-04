@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -43,26 +44,32 @@ export default function Dashboard({ navigation }) {
   ];
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.grid}>
-        {menuItems.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={[styles.card, { backgroundColor: item.color }]}
-            onPress={() => navigation.navigate(item.screen)}
-          >
-            <Ionicons name={item.icon} size={32} color="white" />
-            <Text style={styles.cardText}>{item.title}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </ScrollView>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.grid}>
+          {menuItems.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[styles.card, { backgroundColor: item.color }]}
+              onPress={() => navigation.navigate(item.screen)}
+            >
+              <Ionicons name={item.icon} size={32} color="white" />
+              <Text style={styles.cardText}>{item.title}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  container: {
+    paddingTop: 100, // Add padding to move content down
     backgroundColor: '#f5f5f5',
   },
   grid: {
