@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert, ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-/* import supabase from '../lib/supabase'; // Ensure the path is correct */
+import supabase from '../lib/supabase'; // Import the supabase client
 
 const SignUpScreen = ({ navigation }) => {
   const [user, setUser] = useState({ email: '', password: '', name: '' });

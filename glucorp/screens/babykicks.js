@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
-/* import { supabase } from '../lib/supabase'; */
+import { supabase } from '../lib/supabase'; // Import the supabase client
 
 export default function BabyKicks() {
   const [isRecording, setIsRecording] = useState(false);
@@ -104,7 +104,7 @@ export default function BabyKicks() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 100,
     backgroundColor: '#fff',
   },
   recordButton: {

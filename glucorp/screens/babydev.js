@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const weeklyData = [
   {
@@ -52,6 +53,7 @@ const weeklyData = [
 
 export default function BabyDevelopment() {
   return (
+    <SafeAreaView style={styles.container}>
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Baby Development Timeline</Text>
       {weeklyData.map((item, index) => (
@@ -62,6 +64,7 @@ export default function BabyDevelopment() {
         </View>
       ))}
     </ScrollView>
+    </SafeAreaView>
   );
 }
 
