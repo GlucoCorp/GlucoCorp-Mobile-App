@@ -14,6 +14,7 @@ import Community from './screens/community';
 import BloodPressure from './screens/BloodPressure';
 import BabyKicks from './screens/babykicks';
 import BabyDevelopment from './screens/babydev';
+import { supabase } from './lib/supabase'; // Import the supabase client
 
 const Stack = createStackNavigator();
 
