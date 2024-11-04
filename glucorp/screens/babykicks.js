@@ -104,7 +104,7 @@ export default function BabyKicks() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 100,
     backgroundColor: '#fff',
   },
   recordButton: {

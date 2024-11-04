@@ -44,7 +44,7 @@ export default function Dashboard({ navigation }) {
   ];
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.grid}>
           {menuItems.map((item, index) => (

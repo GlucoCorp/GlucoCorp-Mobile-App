@@ -7,6 +7,7 @@ import {
   StyleSheet,
   FlatList,
   Alert,
+  SafeAreaView,
 } from 'react-native';
 /* import { supabase } from '../lib/supabase'; */
 
@@ -57,6 +58,7 @@ export default function GlucoseMonitor() {
   }, []);
 
   return (
+    <SafeAreaView style={styles.container}>
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
@@ -84,6 +86,7 @@ export default function GlucoseMonitor() {
         )}
       />
     </View>
+    </SafeAreaView>
   );
 }
 
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   inputContainer: {
-    marginBottom: 20,
+    marginTop: 100,
   },
   input: {
     borderWidth: 1,
