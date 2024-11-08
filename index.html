@@ -1,474 +1,456 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V894XJKESN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V894XJKESN');
-</script>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "on39v4azub");
-</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GluCorp | Transforming maternal healthcare in Africa</title>
-    <meta name="description" content="GluCorp empowers pregnant mothers in Africa through offering prenatal and postnatal care.">
-    
-	<!--Canonical tag-->
-	<link rel="canonical" href="https://glucorp.org">
+    <title>GluCorp - Transforming Prenatal and Postnatal Care</title>
 
-    <!-- Original styles and scripts -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/flaticon.css"> -->
-    <link rel="stylesheet" href="css/tiny-slider.css">
-    <link rel="stylesheet" href="css/glightbox.min.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
+	<!-- Favicon -->
+    <link rel="icon" type="images/favicon-32x32.png" href="favicon.ico">
     
-    <!-- Preconnect and font loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Add your favicon here -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+	<!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Add schema.org markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "GluCorp",
-      "url": "https://glucorp.org",
-      "logo": "https://glucorp.org/images/GLUCORP_(2).png",
-      "description": "GluCorp is transforming prenatal and postnatal care for pregnant mothers in Africa through innovative health technology.",
-      "sameAs": [
-        "https://www.facebook.com/GluCorp",
-        "https://twitter.com/GluCorp_",
-        "https://www.instagram.com/GluCorp",
-        "https://www.linkedin.com/company/glucorp_co/"
-      ]
-    }
-    </script>
-</head>
+	<!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+	<!-- IcoFont CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/icofont/1.0.1/icofont.min.css" rel="stylesheet">
 
-	<style>
-        #please {
-            text-align: center;
-			margin-right: 100px;
-			
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #FF69B4;
+            --secondary-color: #4A90E2;
+            --dark-color: #333333;
+            --light-color: #FFFFFF;
         }
 
-        h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
         }
 
-        h3 {
-            font-size: 18px;
-            font-weight: normal;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        input[type="email"] {
+        /* Navigation Styles */
+        .site-navigation {
+            padding: 1rem 0;
+            background: var(--light-color);
+            position: fixed;
             width: 100%;
-            max-width: 300px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .cta-button {
-            background-color: var(--bs-body-color);
-            color: white;
+        .logo img {
+            transition: all 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-center-wrap ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-center-wrap a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-center-wrap a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .site-mobile-menu {
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 2000;
+            width: 300px;
+            height: 100vh;
+            background: var(--light-color);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            padding: 2rem;
+            display: none;
+        }
+
+        .site-mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .burger {
+            background: none;
             border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
+            font-size: 1.5rem;
+            color: var(--dark-color);
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
         }
 
-        .cta-button:hover {
-            background-color: orangered;
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
         }
 
-		#social-media {
-    text-align: center; /* Center-align text */
-    padding: 20px; /* Add padding around the section */
-    background-color: #f9f9f9; /* Light background for contrast */
-    border-radius: 8px; /* Rounded corners for a modern look */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
 
-#social-media h2 {
-    font-size: 24px; /* Adjust heading size */
-    margin-bottom: 15px; /* Space below the heading */
-    color: #333; /* Dark text color */
-}
+        .hero .img-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
 
-#social-media ul {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: center; /* Center the icons */
-    gap: 20px; /* Space between icons */
-}
+        .hero .img-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-#social-media a {
-    display: inline-block; /* Make the link a block for better click area */
-}
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            color: var(--light-color);
+        }
 
-#social-media img {
-    width: 30px; /* Fixed width */
-    height: 30px; /* Fixed height */
-    transition: transform 0.3s; /* Smooth transition for hover effect */
-}
+        .hero .heading {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
 
-#social-media a:hover img {
-    transform: scale(1.2); /* Enlarge icon on hover */
-}
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-        @media (min-width: 768px) {
-            form {
-                flex-direction: row;
-                justify-content: center;
+        .btn-primary:hover {
+            background-color: darken(var(--primary-color), 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+        }
+
+        /* About Section */
+        .service-section-1 {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .service-section-1 img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-section-1 .heading {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-section-1 ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-section-1 ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-section-1 ul li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Mission Section */
+        .section-2 {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+
+        .section-2 .heading {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Waitlist Section */
+        #please {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        #please h2 {
+            margin-bottom: 2rem;
+        }
+
+        /* Social Media Section */
+        #social-media {
+            padding: 5rem 0;
+            background: var(--light-color);
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Loading Overlay */
+        #overlayer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--light-color);
+            z-index: 9999;
+        }
+
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+            .nav-center-wrap {
+                display: none;
             }
 
-            input[type="email"] {
-                margin-bottom: 0;
-                margin-right: 10px;
+            .site-mobile-menu {
+                display: block;
+            }
+
+            .hero .heading {
+                font-size: 2.5rem;
             }
         }
-		@-webkit-keyframes slideleft {
-			0% {
-				background-position: 385000px;
-			}
 
-			100% {
-				background-position: 0;
-			}
-		}
+        @media (max-width: 767.98px) {
+            .hero .heading {
+                font-size: 2rem;
+            }
 
-		@keyframes slideleft {
-			0% {
-				background-position: 385000px;
-			}
+            .service-section-1 {
+                padding: 3rem 0;
+            }
 
-			100% {
-				background-position: 0;
-			}
-		}
-
-		#lead-capture {
-    background: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 24px;
-    padding: 12px;
-    width: calc(100vw - 48px);
-    max-width: 600px;
-    margin: 24px auto;
-    gap: 16px;
-}
-
-#lead-capture .visuals {
-    background: url('images/Photo1.jfif') no-repeat center center;
-    background-size: cover;
-    border-radius: 12px;
-    width: 40%;
-}
-
-#lead-capture .readables {
-    width: 60%;
-    padding: 16px;
-    display: flex; /* Center content inside .readables */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-#lead-capture form {
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-}
-
-#lead-capture input[type="email"] {
-    border-radius: 12px;
-    background: whitesmoke;
-    border: none;
-    padding: 0 18px;
-    line-height: 44px;
-    width: 100%;
-    color: #333;
-    transition: 400ms ease all;
-}
-
-#lead-capture input[type="email"]::placeholder {
-    color: #999;
-}
-
-#lead-capture button {
-    border-radius: 12px;
-    border: none;
-    background: gray;
-    padding: 0 18px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 400ms ease;
-	height: 44px;
-}
-
-#lead-capture button:hover {
-    background: peru;
-}
-
-/* Responsive adjustments for mobile screens */
-@media (max-width: 768px) {
-    #lead-capture {
-        flex-direction: column;
-        padding: 16px;
-        gap: 16px;
-    }
-
-    #lead-capture .visuals {
-        width: 100%;
-        border-radius: 12px;
-    }
-
-    #lead-capture .readables {
-        width: 100%;
-        padding: 16px;
-		align-items: center;
-    }
-
-    #lead-capture form {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    #lead-capture input[type="email"] {
-        line-height: 40px;
-    }
-
-    #lead-capture button {
-        width: 100%; /* Make button full width on mobile */
-    }
-}
-
-	</style>
+            .section-2 {
+                padding: 3rem 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Mobile Menu -->
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body">
+            <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#please">Waitlist</a></li>
+                <li><a href="#social-media">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
 
-	<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-			<div class="site-mobile-menu-close">
-				<span class="icofont-close js-menu-toggle"></span>
-			</div>
-		</div>
-		<div class="site-mobile-menu-body"></div>
-	</div>
+    <!-- Navigation -->
+    <nav class="site-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-lg-3">
+                    <a href="index.html" class="logo">
+                        <img src="images/GLUCORP_(2).png" alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" style="width: 150px; height: auto;">
+                    </a>
+                </div>
+                <div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="#please">Waitlist</a></li>
+                        <li><a href="#social-media">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 text-lg-end">
+                    <button class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" 
+                            data-toggle="collapse" 
+                            data-target="#main-navbar">
+                        <span class="icofont-navigation-menu"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-	<nav class="site-nav mt-3">
-		<div class="container">
+    <!-- Hero Section -->
+    <section class="hero overlay">
+        <div class="img-bg rellax">
+            <img src="images/Photo1.jfif" alt="Pregnant mother" class="img-fluid">
+        </div>
+        <div class="container">
+            <div class="row align-items-center justify-content-start">
+                <div class="col-lg-5">
+                    <h1 class="heading" data-aos="fade-up">Holistic care for you and your baby</h1>
+                    <p>Empowering mothers with the tools they need to have a healthy pregnancy journey.</p>
+                    <div class="button-wrapper" data-aos="fade-up">
+                        <a href="https://chat.whatsapp.com/L404sFO9JD82DVjgFPbLNz" 
+                           class="btn btn-primary" 
+                           style="margin-left: 100px">
+                            <span class="caption">Join our Community</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			<div class="site-navigation">
-				<div class="row">
-					<div class="col-6 col-lg-3">
-						<a href="index.html" class="logo">
-							<img src="images/GLUCORP_(2).png" alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" style="width: 150px; height: auto;">
-						</a>
-					</div>
-					<div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
-						<ul class="js-clone-nav  text-center site-menu p-0 m-0">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="#about">About Us</a></li>
-							<li><a href="#mission">Mission</a></li>
-							<li><a href="#please">Waitlist</a></li>
-							<li><a href="#social-media">Contact Us</a></li>
+    <!-- About Section -->
+    <section id="about" class="section service-section-1">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-up">
+                    <img src="images/baby-mother.jpg" alt="African Mother with her child" class="img-fluid">
+                </div>
+                <div class="col-lg-5 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="heading mb-5">About Us</h2>
+                    <p>Africa experiences 342 maternal deaths per 100,000 live births. This is 18x the world's average mortality rate.</p>
+                    <p>GluCorp aims to reduce this rate through technology. By providing pregnant women with the tools they need to monitor their health and the health of their baby, we can help them have a healthy pregnancy journey.</p>
+                    <p>Our app makes prenatal and postnatal care more accessible for pregnant mothers in Africa, enabling them to monitor their health effectively.</p>
+                    <ul>
+                        <li>AI-powered urinalysis tests</li>
+                        <li>Blood glucose and blood pressure monitoring</li>
+                        <li>Baby development tracker</li>
+                        <li>Interactive educational chatbot</li>
+                        <li>Community forum for sharing experiences</li>
+                        <li>Medication reminder system</li>
+                        <li>In-app doctor consultations</li>
+                        <li>In-app purchases of medication and baby products</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Mission Section -->
+    <section class="section section-2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div id="mission">
+                        <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">Our Vision</h2>
+                        <p>Our vision is to transform prenatal and postnatal for pregnant mothers in Africa.</p>
+                        
+                        <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">Our Mission</h2>
+                        <p>Our mission is to empower pregnant mothers with the tools they need to have a healthy pregnancy journey. We believe that every mother deserves the best care possible, and we are committed to making that care available to all. We aim to provide affordable and accessible healthcare to pregnant mothers, ensuring that they have the support they need to have a healthy pregnancy and a healthy baby.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						</ul>
-					</div>
-					<div class="col-6 col-lg-3 text-lg-end">
-	
-						<a href="#"
-							class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"
-							data-toggle="collapse" data-target="#main-navbar">
-							<span></span>
-						</a>
+    <!-- Waitlist Section -->
+    <section id="please" class="section service-section-1">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2>Impressed? Be the first to know when the app is out!</h2>
+                    <p>Join our waitlist to enjoy early access to the app and receive exclusive updates on our progress.</p>
+                    <p>Enter your email below!</p>
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-					</div>
-				</div>
-
-			</div>
-	</nav>	
-	<div>
-		<div class="hero overlay">
-
-			<div class="img-bg rellax">
-				<img src="images/Photo1.jfif" alt="Pregnant mother" class="img-fluid">
-			</div>
-			<div class="container">
-				<div class="row align-items-center justify-content-start">
-					<div class="col-lg-5">
-	
-						<h1 class="heading" data-aos="fade-up">Holistic care for you and your baby</h1>
-						<p class="mb-5" data-aos="fade-up">Empowering mothers with the tools they need to have a healthy
-								pregnancy
-								journey.</p>
-	
-						<div class="button-wrapper" data-aos="fade-up" >
-							<a href="https://chat.whatsapp.com/L404sFO9JD82DVjgFPbLNz" alt= "GluCorp Community" class="btn btn-primary" style="margin-left: 100px">
-							  <span class="caption">Join our Community</span>
-							</a>
-						  </div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-	
-			
-		</div>
-
-	</div>
-
-
-
-	<div class="section service-section-1">
-		<div id="about">
-			<div class="container">
-				<div class="row justify-content-between align-items-center">
-					<div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-up">
-						<img src="images/baby-mother.jpg" alt="African Mother with her child" class="img-fluid">
-					</div>
-					<div class="col-lg-5 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-						<h2 class="heading mb-5">About Us</h2>
-                        <p>Africa experiences 342 maternal deaths per 100,000 live births. This is 18x the world's average mortality rate.</p>
-						<p>GluCorp aims to reduce this rate through technology. By providing pregnant women with the tools they need to monitor their health and the health of their baby, we can help them have a healthy pregnancy journey.</p> 
-							Our app makes prenatal and postnatal care more accessible for pregnant mothers in Africa, enabling them to monitor their health effectively.
-						</p>
-                        <ul>
-                            <li>AI-powered urinalysis tests</li>
-                            <li>Blood glucose and blood pressure monitoring</li>
-                            <li>Baby development tracker</li>
-                            <li>Interactive educational chatbot</li>
-                            <li>Community forum for sharing experiences</li>
-                            <li>Medication reminder system</li>
-                            <li>In-app doctor consultations</li>
-                            <li>In-app purchases of medication and baby products</li>
-                        </ul>
-						<div class="custom-accordion" id="accordion_1">
-
-
-							<!-- .accordion-item -->
-							<div class="mb-0" data-aos="fade-up">
-								<p style="color: black;"></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="section section-2">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<div id="mission">
-						<h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100" style="color: black;">Our Vision</h2>
-						<p data-aos="fade-up" data-aos-delay="200">
-							Our vision is to transform prenatal and postnatal for pregnant mothers in Africa. 
-						</p>
-						<h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100" style="color: black;">Our Mission</h2>
-						<p data-aos="fade-up" data-aos-delay="200">
-							Our mission is to empower pregnant mothers with the tools they need to have a healthy pregnancy journey. 
-							We believe that every mother deserves the best care possible, and we are committed to making that care available to all. 
-							We aim to provide affordable and accessible healthcare to pregnant mothers, ensuring that they have the support they need to have a healthy pregnancy and a healthy baby.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="section service-section-1">
-		<!-- partial:index.partial.html -->
-		<section id="lead-capture">
-			<section class="visuals">
-
-			</section>
-			<section class="readables">
-				<div id="please">
-					<h2>Impressed? Be the first to know when the app is out!</h2>
-					<p>Join our waitlist to enjoy early access to the app and receive exclusive updates on our progress. </p>
-					<p>Enter your email below!</p>
-					<form name="contact" method="POST" data-netlify="true">
-						<input type="hidden" name="form-name" value="contact">
-						<input type="email" name="email" id="email" placeholder="Enter your email" required>
-						<button type="submit" class="cta-button">Subscribe</button>
-					</form>
-					
-					
-				</div>
-			</section>
-		</section>
-		<br>
-		<br>
-		<!-- partial -->
-	</div>
-	<div id="social-media">
-		<h2>Connect With Us</h2>
-		<ul>
-			<li>
-				<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+    <!-- Social Media Section -->
+    <section id="social-media">
+        <div class="container">
+            <h2 class="text-center mb-4">Connect With Us</h2>
+            <div class="social-icons">
+				<a href="https://www.facebook.com/profile.php?id=61567787253378&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
 					<img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="Facebook Icon"  />
 				</a>
-			</li>
-			<li>
 				<a href="https://x.com/GluCorp_/" target="_blank" rel="noopener noreferrer">
 					<img src="https://img.icons8.com/?size=100&id=ClbD5JTFM7FA&format=png&color=000000" alt="X Icon" />
 				</a>
-			</li>
-			<li>
 				<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
 					<img src="https://img.icons8.com/?size=100&id=32323&format=png&color=000000" alt="Instagram Icon" />
 				</a>
-			</li>
-			<li>
 				<a href="https://www.linkedin.com/company/glucorp_co/" target="_blank" rel="noopener noreferrer">
 					<img src="https://img.icons8.com/?size=100&id=114445&format=png&color=000000" alt="LinkedIn Icon" />
 				</a>
-			</li>
-		</ul>
-	</div>
+			</div>
+		</div>
+	</section>
 	
 	<div class="site-footer">
 					<p class="mb-0">Copyright &copy 2024 GluCorp. All rights reserved.
@@ -493,7 +475,7 @@
 		<script src="js/rellax.js"></script>
 		<script src="js/flatpickr.js"></script>
 		<script src="js/glightbox.min.js"></script>
-		<script src="js/custom.js"></script>
+		<!-- <script src="js/custom.js"></script> -->
 </body>
 
 </html>
