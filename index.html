@@ -17,7 +17,7 @@
 
 	<!--Canonical tag-->
 	<link rel="canonical" href="https://glucorp.org">
-	
+
 	<!-- Favicon -->
     <link rel="icon" type="images/favicon-32x32.png" href="favicon.ico">
     
@@ -72,11 +72,11 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .logo img {
-            transition: all 0.3s ease;
-        }
-
+		.logo img {
+			width: 50px;
+			height: auto;
+			transition: transform 0.3s ease;
+		}
         .logo img:hover {
             transform: scale(1.05);
         }
@@ -117,6 +117,7 @@
         }
 
         .site-mobile-menu.active {
+			display: block;
             transform: translateX(0);
         }
 
@@ -354,7 +355,7 @@
             <div class="row">
                 <div class="col-6 col-lg-3">
                     <a href="index.html" class="logo">
-                        <img src="images/GLUCORP_(2).png" alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" style="width: 150px; height: auto;">
+                        <img src="images/GLUCORP_(2).png" alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" style="width: 50px; height: auto;">
                     </a>
                 </div>
                 <div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
@@ -502,5 +503,17 @@
 		<script src="js/flatpickr.js"></script>
 		<script src="js/glightbox.min.js"></script>
 		<script src="js/custom.js"></script>
+		<script>
+			function toggleMenu() {
+				document.querySelector('.site-mobile-menu').classList.toggle('active');
+			}
+			// Close menu when clicking outside
+			document.addEventListener('click', function(event) {
+				if (!event.target.closest('.burger') && !event.target.closest('.site-mobile-menu.active')) {
+					document.querySelector('.site-mobile-menu').classList.remove('active');
+				}
+			});
+		</script>
+		
 </body>
 </html>
