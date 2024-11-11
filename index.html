@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-V894XJKESN"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'G-V894XJKESN');
+	</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -376,31 +385,40 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="site-navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 col-lg-3">
-                    <a href="index.html" class="logo">
-                        <img src="images/GLUCORP_(2).webp" alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" style="width: 50px; height: auto;" loading="lazy">
-                    </a>
-                </div>
-                <div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
-                    <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#mission">Mission</a></li>
-                        <li><a href="#please">Waitlist</a></li>
-                        <li><a href="#social-media">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-3 text-lg-end d-lg-none">
-                    <button class="burger" onclick="toggleMenu()">
-                        <span class="icofont-navigation-menu" style="font-size: 24px; cursor: pointer; display: block; color: #000;"></span>
-                    </button>
-                </div>
+<nav class="site-navigation">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Logo on the far left -->
+            <div class="col-6 col-lg-3">
+                <a href="index.html" class="logo">
+                    <img src="images/GLUCORP_(2).webp" 
+                         alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" 
+                         style="width: 50px; height: 50px;" 
+                         loading="lazy">
+                </a>
+            </div>
+            
+            <!-- Centered Navigation Links (visible on large screens) -->
+            <div class="col-lg-6 d-none d-lg-flex justify-content-center nav-center-wrap">
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#please">Waitlist</a></li>
+                    <li><a href="#social-media">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <!-- Menu Button on the far right (visible on mobile) -->
+            <div class="col-6 col-lg-3 d-flex justify-content-end d-lg-none">
+                <button class="burger" onclick="toggleMenu()">
+                    <span class="icofont-navigation-menu" 
+                          style="font-size: 24px; cursor: pointer; display: block; color: #000;"></span>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 	<script>
         function toggleMenu() {
