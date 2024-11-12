@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-glucorp-dev-f718c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::058264076507:role/amplify-glucorp-dev-f718c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::058264076507:role/amplify-glucorp-dev-f718c-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-glucorp-dev-f718c-deployment",
+      "UnauthRoleName": "amplify-glucorp-dev-f718c-unauthRole",
+      "StackName": "amplify-glucorp-dev-f718c",
+      "StackId": "arn:aws:cloudformation:us-east-1:058264076507:stack/amplify-glucorp-dev-f718c/822587a0-a0e4-11ef-95ba-12aedc73d27f",
+      "AmplifyAppId": "d1y2fqzdhofheh"
+    },
+    "categories": {
+      "auth": {
+        "glucorp78c1ebf9": {}
+      }
+    }
+  }
+}
