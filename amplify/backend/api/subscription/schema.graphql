@@ -1,0 +1,10 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+# This schema defines the EmailSubscription model for storing user emails
+type EmailSubscription @model {
+  id: ID!         # Unique identifier for each subscription (auto-generated)
+  email: String!  # User's email address (required field)
+  createdAt: AWSDateTime # Timestamp of when the email was added (auto-generated)
+}

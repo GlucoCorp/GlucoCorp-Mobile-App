@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GluCorp - Transforming Prenatal and Postnatal Care</title>
+    <title>GluCorp - Fighting preeclampsia and postpartum hemorrhage</title>
 
 	<!--Canonical tag-->
 	<link rel="canonical" href="https://glucorp.org">
@@ -30,15 +30,13 @@
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #FF69B4;
-            --secondary-color: #4A90E2;
+            --primary-color: #F06292;
+            --secondary-color: #4a91e267;
             --dark-color: #333333;
             --light-color: #FFFFFF;
-        }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: var(--dark-color);
         }
 
@@ -392,7 +390,7 @@
             <div class="col-6 col-lg-3">
                 <a href="index.html" class="logo">
                     <img src="images/GLUCORP_(2).webp" 
-                         alt="GluCorp Logo - Transforming prenatal and postnatal for Pregnant Mothers" 
+                         alt="GluCorp Logo - Transforming maternal care for Pregnant Mothers" 
                          style="width: 50px; height: 50px;" 
                          loading="lazy">
                 </a>
@@ -427,7 +425,7 @@
 
         document.querySelector('.js-menu-toggle').addEventListener('click', () => {
             document.querySelector('.site-mobile-menu').classList.toggle('active');
-        });
+            });
     </script>
 
     <!-- Hero Section -->
@@ -438,13 +436,13 @@
         <div class="container">
             <div class="row align-items-center justify-content-start">
                 <div class="col-lg-5">
-                    <h1 class="heading" data-aos="fade-up">Holistic care for you and your baby</h1>
+                    <h1 class="heading" data-aos="fade-up">Moms hold the world, we hold moms</h1>
                     <p>Empowering mothers with the tools they need to have a healthy pregnancy journey.</p>
                     <div class="button-wrapper" data-aos="fade-up">
-                        <a href="https://chat.whatsapp.com/L404sFO9JD82DVjgFPbLNz" 
+                        <a href="https://glucorp.substack.com/subscribe" 
                            class="btn btn-primary" 
                            style="margin-left: 100px">
-                            <span class="caption">Join our Community</span>
+                            <span class="caption">Subscribe to our newsletter</span>
                         </a>
                     </div>
                 </div>
@@ -462,17 +460,17 @@
                 <div class="col-lg-5 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
                     <h2 class="heading mb-5">About Us</h2>
                     <p>Africa experiences 342 maternal deaths per 100,000 live births. This is 18x the world's average mortality rate.</p>
-                    <p>GluCorp aims to reduce this rate through technology. By providing pregnant women with the tools they need to monitor their health and the health of their baby, we can help them have a healthy pregnancy journey.</p>
-                    <p>Our app makes prenatal and postnatal care more accessible for pregnant mothers in Africa, enabling them to monitor their health effectively.</p>
+                    <p>GluCorp aims to reduce this rate through technology. By providing pregnant women with the tools they need to monitor their health and detect syptoms for preeclampsia and postpartum hemorrhage at an early stage.</p>
+                    <p>Our app and USSD code educates moms, helps them detect unusual changes in there bodies, access emergency care, midwifes and join a community with other moms.</p>
                     <ul>
-                        <li>AI-powered urinalysis tests</li>
+                        <li>AI-powered alerts</li>
                         <li>Blood glucose and blood pressure monitoring</li>
-                        <li>Baby development tracker</li>
+                        <li>Daily Symptoms logging</li>
                         <li>Interactive educational chatbot</li>
                         <li>Community forum for sharing experiences</li>
                         <li>Medication reminder system</li>
                         <li>In-app doctor consultations</li>
-                        <li>In-app purchases of medication and baby products</li>
+                        <li>In-app purchases of medication, supplements and monitoring kits</li>
                     </ul>
                 </div>
             </div>
@@ -501,13 +499,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 style="font-weight: bold;">Impressed? Be the first to know when the app is out!</h2>
-                    <p>Join our waitlist to enjoy early access to the app and receive exclusive updates on our progress.</p>
-                    <p>Enter your email below!</p>
+                    <h2 style="font-weight: bold;">Join Our Pilot Program in Rwanda & Uganda!</h2>
+                    <p>Be among the first to experience our app. Sign up to participate in the pilot program and receive exclusive updates.</p>
+                    <p>Enter your email below to get started!</p>
 					<div class="input-group mb-3">
-						<input type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2" style="border-radius: 10px;">
+						<input id="emailInput" type="email" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="button-addon2" style="border-radius: 10px;">
 					</div>
-                    <button class="btn btn-primary">Subscribe</button>
+                    <button id="signUpButton" class="btn btn-primary">Sign up for the pilot</button>
+                    <p id="message"></p>
                 </div>
             </div>
         </div>
@@ -556,6 +555,67 @@
 		<script src="js/flatpickr.js" defer></script>
 		<script src="js/glightbox.min.js" defer></script>
 		<script src="js/custom.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/aws-amplify@latest/dist/aws-amplify.min.js"></script>
+
+<script type="module">
+   import { Amplify, graphqlOperation } from 'https://cdn.jsdelivr.net/npm/aws-amplify@4.3.21/dist/aws-amplify.min.js';
+    Amplify.configure({
+      aws_appsync_graphqlEndpoint: 'https://udcrooc6cjdx7b2wnccdjyooie.appsync-api.us-east-1.amazonaws.com/graphql',
+      aws_appsync_region: 'us-east-1',
+      aws_appsync_authenticationType: 'API_KEY',
+      aws_appsync_apiKey: 'da2-ejaom45f6bgm7cu2cy7de224h4',
+    });
+
+    // GraphQL mutation to create email subscription
+    const createEmailSubscription = /* GraphQL */ `
+    mutation CreateEmailSubscription(
+      $input: CreateEmailSubscriptionInput!
+      $condition: ModelEmailSubscriptionConditionInput
+    ) {
+      createEmailSubscription(input: $input, condition: $condition) {
+        id
+        email
+        createdAt
+        updatedAt
+        __typename
+      }
+    }`;
+
+    // Handle form submission
+    document.addEventListener('DOMContentLoaded', () => {
+        const signUpButton = document.getElementById('signUpButton');
+        const emailInput = document.getElementById('emailInput');
+        const messageElement = document.getElementById('message');
+
+        if (signUpButton && emailInput && messageElement) {
+            signUpButton.addEventListener('click', async function() {
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    messageElement.textContent = 'Please enter a valid email!';
+                    return;
+                }
+
+                try {
+                    await API.graphql({
+                        query: createEmailSubscription,
+                        variables: { 
+                            input: { 
+                                email: email 
+                            } 
+                        }
+                    });
+
+                    messageElement.textContent = 'You have successfully signed up for the pilot program!';
+                    emailInput.value = ''; // Clear the input field
+                } catch (err) {
+                    messageElement.textContent = 'Failed to sign up. Please try again.';
+                    console.error('Error signing up for the pilot:', err);
+                }
+            });
+        }
+    });
+</script>
 				
 </body>
 </html>
