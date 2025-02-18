@@ -569,56 +569,39 @@
 
         <script>
             document.getElementById("waitlistForm").addEventListener("submit", async function (event) {
-                event.preventDefault(); // Prevents page refresh
-        
-                let email = document.getElementById("emailInput").value.trim();
-                let message = document.getElementById("message");
+                event.preventDefault();
+            
+                let email = document.getElementById("emailInput").value;
+                let signUpButton = document.getElementById("signUpButton");
                 let buttonText = document.getElementById("buttonText");
-                let spinner = document.getElementById("loadingSpinner");
-        
-                // Validate email
-                if (!validateEmail(email)) {
-                    message.textContent = 'Please enter a valid email!';
-                    message.style.color = 'red';
-                    return;
-                }
-        
+                let loadingSpinner = document.getElementById("loadingSpinner");
+                let message = document.getElementById("message");
+            
                 // Show loading spinner
                 buttonText.style.display = "none";
-                spinner.style.display = "inline-block";
-        
+                loadingSpinner.style.display = "inline-block";
+            
                 try {
-                    let response = await fetch("https://72kwva6388.execute-api.us-east-1.amazonaws.com/prod", {
+                    let response = await fetch("https://your-railway-api.up.railway.app/waitlist", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ email: email }),
+                        body: JSON.stringify({ email: email })
                     });
-        
+            
                     let result = await response.json();
-        
                     if (response.ok) {
-                        message.textContent = result.message || "Successfully signed up!";
-                        message.style.color = "green";
-                        document.getElementById("waitlistForm").reset(); // Clear form after success
+                        message.innerHTML = `<span style="color: green;">${result.message}</span>`;
                     } else {
-                        throw new Error(result.message || "Failed to sign up.");
+                        message.innerHTML = `<span style="color: red;">${result.detail}</span>`;
                     }
                 } catch (error) {
-                    message.textContent = "Something went wrong. Please try again.";
-                    message.style.color = "red";
+                    message.innerHTML = `<span style="color: red;">Error submitting form. Please try again.</span>`;
                 } finally {
-                    // Restore button text
-                    buttonText.style.display = "inline";
-                    spinner.style.display = "none";
+                    buttonText.style.display = "inline-block";
+                    loadingSpinner.style.display = "none";
                 }
             });
-        
-            // Email validation function
-            function validateEmail(email) {
-                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return regex.test(email);
-            }
-        </script>
+        </script>            
 				
     </body>
 </html>
