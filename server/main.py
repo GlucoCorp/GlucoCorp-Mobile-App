@@ -1,15 +1,25 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, EmailStr
 import uvicorn
 import os 
 
 app = FastAPI()
 
+# Add CORS middleware with specific origin
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://glucorp.org", "http://glucorp.org"],  # Your actual domain
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"],
+)
+
 # Mock database (later, replace with real DB)
 waitlist_db = set()
 
 class WaitlistEntry(BaseModel):
-    email: str
+    email: EmailStr
 
 @app.post("/waitlist")
 async def add_to_waitlist(entry: WaitlistEntry):
