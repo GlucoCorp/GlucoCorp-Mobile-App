@@ -582,7 +582,7 @@
                 loadingSpinner.style.display = "inline-block";
             
                 try {
-                    let response = await fetch("https://your-railway-api.up.railway.app/waitlist", {
+                    let response = await fetch("http://127.0.0.1:8000/waitlist", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ email: email })
