@@ -6,11 +6,19 @@
     --light-color: #FFFFFF;
     --section-padding: 6rem;
     --card-bg: #FFFFFF;
+    --body-font: 'Inter', sans-serif;
+    --heading-font: 'Sora', sans-serif;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--body-font);
     color: var(--dark-color);
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading,
+.feature-card {
+    font-family: var(--heading-font);
 }
 
 /* Navigation Styles */
@@ -159,10 +167,10 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    font-family: 'Sora', sans-serif;
+    font-family: var(--heading-font);
 }
 .tagline {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--heading-font);
 }
 
 /* Button Styles */
