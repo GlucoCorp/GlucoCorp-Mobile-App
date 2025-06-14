@@ -13,6 +13,15 @@ body {
     color: var(--dark-color);
 }
 
+/* Global Section Heading */
+.section-heading {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-family: 'Sora', sans-serif;
+}
+
 /* Navigation Styles */
 .site-navigation {
     padding: 1rem 0;
@@ -260,6 +269,21 @@ body {
 }
 .social-icons img:hover {
     transform: scale(1.2);
+}
+
+/* Social icon link size */
+.social-link {
+    width: 20px;
+    display: inline-block;
+}
+
+/* Waitlist form styles */
+.waitlist-input {
+    border-radius: 10px;
+}
+
+#loadingSpinner {
+    display: none;
 }
 
 /* Footer */
