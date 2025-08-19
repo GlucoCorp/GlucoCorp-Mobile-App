@@ -1,0 +1,99 @@
+Privacy Policy for GluCorp App
+
+Effective Date: [Insert Date]
+
+GluCorp (“we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile app, website, and related services (collectively, the “Services”).
+
+By using our Services, you agree to the terms of this Privacy Policy.
+
+1. Information We Collect
+
+We may collect the following types of information when you use our Services:
+
+Personal Information: Name, phone number, email address, date of birth, and profile details.
+
+Health Information: Blood pressure, blood glucose, hemoglobin levels, fetal movement, weight, symptoms, and notes you log in the app.
+
+Device & Usage Data: IP address, device identifiers, app interactions, crash reports, and cookies (for the web app).
+
+Location Data: If you enable location, we use it to help you find nearby hospitals or emergency services.
+
+2. How We Use Your Information
+
+We use the information collected to:
+
+Provide and improve our health tracking, reminders, and community features.
+
+Personalize user tips, alerts, and recommendations.
+
+Enable communication (e.g., SOS feature, emergency contacts).
+
+Conduct research and analytics (only with anonymized data).
+
+Comply with legal, regulatory, and safety requirements.
+
+3. Sharing of Information
+
+We do not sell or rent your personal information. We may share data only with:
+
+Healthcare partners (with your consent, e.g., to share your logs with your clinician or guardian).
+
+Service providers that help us operate our technology (cloud hosting, data storage, analytics).
+
+Legal authorities if required by law or to protect safety.
+
+4. Data Retention
+
+We keep your personal and health data only for as long as your account is active.
+
+If you request deletion, your data will be erased within 7 days, except:
+
+Transaction/payment records (kept up to 7 years for compliance).
+
+Aggregated/anonymized data (cannot identify you).
+
+5. Data Deletion & Account Removal
+
+You may request deletion of your account and data at any time.
+
+How to request deletion:
+
+Visit: https://www.glucorp.org/account-deletion
+
+Or email: privacy@glucorp.org
+ with subject “Account & Data Deletion.”
+
+We will confirm and process your request within 7 days.
+
+6. Security
+
+We use industry-standard measures to protect your data, including encryption, secure servers, and restricted access. However, no method of transmission or storage is 100% secure.
+
+7. Your Rights
+
+Depending on your location, you may have rights to:
+
+Access, correct, or update your data.
+
+Request deletion of your data.
+
+Withdraw consent for specific data uses.
+
+File a complaint with your local data protection authority.
+
+8. Children’s Privacy
+
+Our Services are designed for maternal health and may be used by women aged 18+. We do not knowingly collect personal data from children under 13.
+
+9. Changes to This Policy
+
+We may update this Privacy Policy from time to time. Updates will be posted here with a new “Effective Date.”
+
+10. Contact Us
+
+If you have questions about this Privacy Policy or how your data is handled, contact us at:
+
+GluCorp Health Inc.
+Email: privacy@glucorp.org
+
+Website: www.glucorp.org
