@@ -258,11 +258,11 @@ strong { font-weight: 600; }
 .board { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 12px 40px; align-items: baseline; color: var(--muted); font-size: 16px; }
 .board strong { color: var(--text); margin-right: 8px; }
 .board__label { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
-.hiring { margin-top: 32px; display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--r); background: var(--accent-soft); text-decoration: none; color: var(--muted); transition: transform .2s; }
-.hiring:hover { transform: translateY(-2px); }
-.hiring > .ic { width: 26px; height: 26px; color: var(--accent); }
-.hiring strong { color: var(--text); }
-.hiring__go { margin-left: auto; color: var(--accent); }
+.partner { margin-top: 32px; display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--r); background: var(--accent-soft); text-decoration: none; color: var(--muted); transition: transform .2s; }
+.partner:hover { transform: translateY(-2px); }
+.partner > .ic { width: 26px; height: 26px; color: var(--accent); }
+.partner strong { color: var(--text); }
+.partner__go { margin-left: auto; color: var(--accent); }
 
 /* CTA */
 .cta { background: var(--ink); color: var(--on-ink); padding-block: clamp(88px, 11vw, 140px); }
@@ -340,8 +340,8 @@ strong { font-weight: 600; }
   .foot__grid { grid-template-columns: 1fr; }
   .row { grid-template-columns: 48px 1fr 28px 86px; gap: 8px; font-size: 12px; }
   .row__s { font-size: 10px; }
-  .hiring { align-items: flex-start; }
-  .hiring__go { display: none; }
+  .partner { align-items: flex-start; }
+  .partner__go { display: none; }
   .drape { flex-direction: column; padding: 24px; }
 }
 

@@ -18,14 +18,14 @@ The live `index.html` describes a consumer pregnancy-tracking **app**: sign up, 
 | Who pays | Implied consumer | **The mother never pays.** Hospitals, insurers, governments and donors pay |
 | Stage | "Subscribe now", "Watch demo" | Early stage. Hardware specified, prototype next, pilots in Rwanda |
 | Base | Unstated | Moving HQ to **Kigali, Rwanda**. Hardware build partner in Kenya |
-| Team | 2 founders | 3-person team, 2 board members, and open roles |
+| Team | 2 founders | 3-person team and 2 board members, looking for partners |
 
 The app MVP on Google Play is now **traction history**: it produced 50+ interviews with mothers and providers and led to the pivot. It is not the product.
 
 ## 2. Who the site is for, in priority order
 
 1. **Clinical and health-system partners**: Rwanda MoH/RBC, facilities, obstetricians, and potential pilot sites.
-2. **Hires**: obstetrician clinical validator, and senior medtech, regulatory and hardware leaders.
+2. **Partners**: hospitals, clinicians, researchers and organisations who can pilot and validate Aya Mama. GluCorp is not hiring.
 3. **Anyone checking us out**: funders who've seen the deck, accelerators, press and the general public. They should come away understanding the problem, the product and the team, and feeling they can trust us.
 
 The site explains what GluCorp does and why it matters. It is not a pitch: **the raise, use of funds, pricing, market sizing and competitor table stay in the deck**, and none of them appear on the site.
@@ -65,7 +65,7 @@ Mothers are not the primary audience for the site. They are the reason the produ
 | 7 | **The six delays** | Diagnosis highlighted as the delay we act on | Numbered strip; delay 1 in the accent colour |
 | 8 | **Evidence** | 0.90 / 51 / 0.815, with citations | Citation-style cards with DOI-style footnotes |
 | 9 | **Progress** | Done / In progress / What's next | Checklist-style ledger, not a generic roadmap graphic |
-| 10 | **People** | Yvonne, Margaret, Caroline; board (confirmed): Scott Remborg, Zuena Munywoki; open roles | Portrait row plus "We're hiring" list |
+| 10 | **People** | Yvonne, Margaret, Caroline; board (confirmed): Scott Remborg, Zuena Munywoki | Portrait row plus a "looking for partners" link. GluCorp is not hiring |
 | 11 | **Work with us** | Separate paths for facilities and pilot sites, clinicians and researchers, and organisations that want to support the work | Three plain text links with icons, plus the contact email |
 | 12 | **Footer** | Kigali, Rwanda · links to legal pages · socials | Short and quiet |
 
@@ -112,7 +112,7 @@ Use **Lucide** icons as **inline SVG**, copied into the HTML with no runtime dep
 | Dashboard | `layout-dashboard`, `monitor` |
 | Evidence | `book-open`, `flask-conical` |
 | Location | `map-pin` |
-| Hiring | `user-plus` |
+| Partnering | `handshake` |
 | Contact | `mail` |
 | Status labels | `pencil-ruler` (designed), `file-check` (specified), `cpu` (prototype) |
 
