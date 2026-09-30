@@ -16,7 +16,7 @@ The live `index.html` describes a consumer pregnancy-tracking **app**: sign up, 
 | Problem | General maternal health | **Postpartum haemorrhage (PPH)**, the leading cause of maternal death in Kenya and Rwanda |
 | User | Pregnant women download it | Clinicians and facilities; the band is fitted to the mother at admission |
 | Who pays | Implied consumer | **The mother never pays.** Hospitals, insurers, governments and donors pay |
-| Stage | "Subscribe now", "Watch demo" | Pre-seed. Hardware specified, prototype next, pilots in Rwanda |
+| Stage | "Subscribe now", "Watch demo" | Early stage. Hardware specified, prototype next, pilots in Rwanda |
 | Base | Unstated | Moving HQ to **Kigali, Rwanda**. Hardware build partner in Kenya |
 | Team | 2 founders | 3-person team, 2 board members, and open roles |
 
@@ -24,10 +24,11 @@ The app MVP on Google Play is now **traction history**: it produced 50+ intervie
 
 ## 2. Who the site is for, in priority order
 
-1. **Funders**: pre-seed investors, grant makers and non-dilutive programmes.
-2. **Clinical and health-system partners**: Rwanda MoH/RBC, facilities, obstetricians, and potential pilot sites.
-3. **Hires**: obstetrician clinical validator, and senior medtech, regulatory and hardware leaders.
-4. Press, accelerators and the general public.
+1. **Clinical and health-system partners**: Rwanda MoH/RBC, facilities, obstetricians, and potential pilot sites.
+2. **Hires**: obstetrician clinical validator, and senior medtech, regulatory and hardware leaders.
+3. **Anyone checking us out**: funders who've seen the deck, accelerators, press and the general public. They should come away understanding the problem, the product and the team, and feeling they can trust us.
+
+The site explains what GluCorp does and why it matters. It is not a pitch: **the raise, use of funds, pricing, market sizing and competitor table stay in the deck**, and none of them appear on the site.
 
 Mothers are not the primary audience for the site. They are the reason the product exists.
 
@@ -42,8 +43,8 @@ Mothers are not the primary audience for the site. They are the reason the produ
 5. **Earlier detection starts every other clock:** Of the six delays in *The Lancet* 2026 PPH series, Aya Mama acts on the first, diagnosis. That gives more time for response, escalation, transfer, treatment and blood.
 6. **Evidence:** Reserve index AUC 0.90 in trauma medicine (Janak et al., 2015). First obstetric evidence in 51 caesarean patients (Reppucci et al., 2024). GluCorp's own result: AUC 0.815 from pulse shape alone across 1,570 ICU patients, using a proxy label and not yet a maternal model.
 7. **Fits clinical practice:** Works alongside the WHO-recommended calibrated drape, not against it. The drape's measured blood loss becomes the training label, and that paired data is the moat.
-8. **Where we are:** a "Done / In progress / Next 18 months" view (from the deck's traction and roadmap slides).
-9. **Team and board**, then **Partner with us**.
+8. **Where we are:** a "Done / In progress / What's next" view, taken from the deck's traction and roadmap slides but written as milestones, not as what a funding round buys. Leave out fundraising milestones such as "seed-ready".
+9. **Team and board**, then **Work with us**.
 
 ### Honesty rules (non-negotiable for a medtech site)
 - Every hardware and software claim carries a **status label**: *Designed*, *Specified*, *Prototype*, *In pilot* or *Validated*. Today the band is "designed, not yet built" and the system is "specified, not yet built".
@@ -55,7 +56,7 @@ Mothers are not the primary audience for the site. They are the reason the produ
 
 | # | Section | Content | Signature element |
 |---|---|---|---|
-| 1 | **Hero** | Headline, one-line subhead, "Partner with us" and "Read the science" | A slow, animated **pulse waveform** drawn in SVG, whose line thins as "reserve" drains. No stock-photo hero |
+| 1 | **Hero** | Headline, one-line subhead, "See how it works" and "Work with us" | A slow, animated **pulse waveform** drawn in SVG, whose line thins as "reserve" drains. No stock-photo hero |
 | 2 | **The two-hour window** | 45,000 / 70% / 2 hours, with sources | Large serif numerals on cream, set like an editorial spread |
 | 3 | **The body hides the bleed** | Reserve vs blood-pressure explanation | The deck's **reserve curve** chart, redrawn as a responsive SVG and animated on scroll |
 | 4 | **Close to home** | Kenya 37% of deaths from PPH; Rwanda 83% of maternal deaths in hospitals | Two-column "field note" cards |
@@ -63,12 +64,12 @@ Mothers are not the primary audience for the site. They are the reason the produ
 | 6 | **One mother's journey** | Admission → Labour → Ward → Discharge | Horizontal timeline that becomes vertical on mobile |
 | 7 | **The six delays** | Diagnosis highlighted as the delay we act on | Numbered strip; delay 1 in the accent colour |
 | 8 | **Evidence** | 0.90 / 51 / 0.815, with citations | Citation-style cards with DOI-style footnotes |
-| 9 | **Progress** | Done / In progress / Next 18 months | Checklist-style ledger, not a generic roadmap graphic |
-| 10 | **People** | Yvonne, Margaret, Caroline; board: Scott Remborg, Zuena Munywoki; open roles | Portrait row plus "We're hiring" list |
-| 11 | **Partner with us** | Separate paths for funders, pilot sites and clinicians | Three plain text links with icons, plus the contact email |
+| 9 | **Progress** | Done / In progress / What's next | Checklist-style ledger, not a generic roadmap graphic |
+| 10 | **People** | Yvonne, Margaret, Caroline; board (confirmed): Scott Remborg, Zuena Munywoki; open roles | Portrait row plus "We're hiring" list |
+| 11 | **Work with us** | Separate paths for facilities and pilot sites, clinicians and researchers, and organisations that want to support the work | Three plain text links with icons, plus the contact email |
 | 12 | **Footer** | Kigali, Rwanda · links to legal pages · socials | Short and quiet |
 
-Nav: *Problem · Aya Mama · Evidence · Progress · Team · Partner*.
+Nav: *Problem · Aya Mama · Evidence · Progress · Team · Work with us*.
 
 ## 5. Visual direction: "clinical editorial"
 
@@ -147,12 +148,10 @@ Keep the social icons already in the footer: LinkedIn, X, Facebook and TikTok.
 
 1. **Is the Aya Mama consumer app still live** on Google Play, and should the site mention it at all beyond "where we started"?
 2. **Kigali move**: can it be announced publicly now, or should the site say "Nairobi and Kigali"?
-3. **Fundraise**: show the USD 500,000 pre-seed and use of funds publicly, or keep that for the deck? My recommendation is to say "raising pre-seed" and link to a contact form, without listing figures.
-4. **Board members**: do Scott Remborg and Zuena Munywoki agree to be listed?
-5. **Contact addresses**: use `mwende@glucorp.org` for partnerships, or a shared `partners@` / `hello@` inbox?
-6. **Evidence figures**: is the 0.815 AUC result approved for public use?
-7. **Waitlist backend** (`server/main.py`): keep it as a "partner enquiry" endpoint, or drop it and use a `mailto:` link?
-8. **Language**: add Kinyarwanda and French later?
+3. **Contact addresses**: use `mwende@glucorp.org` for partnerships, or a shared `partners@` / `hello@` inbox?
+4. **Evidence figures**: is the 0.815 AUC result approved for public use?
+5. **Waitlist backend** (`server/main.py`): keep it as a "partner enquiry" endpoint, or drop it and use a `mailto:` link?
+6. **Language**: add Kinyarwanda and French later?
 
 ## 10. Build order once approved
 
