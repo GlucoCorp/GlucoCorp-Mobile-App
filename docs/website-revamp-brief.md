@@ -1,6 +1,6 @@
 # GluCorp website revamp: brief
 
-Status: built, then revised. The first build transcribed the deck and read like a document. The current site uses the deck for facts only: short copy, product visuals, one idea per section.
+Status: built, then revised. The first build transcribed the deck and read like a document. The current site uses the deck for facts only: short copy, product visuals, one idea per section. The site is now split into six pages (Home, How it works, Aya Mama, Science, About, Contact) that share a pinned header and footer.
 
 ## 0. Source of truth
 
