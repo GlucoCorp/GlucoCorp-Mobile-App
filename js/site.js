@@ -9,6 +9,7 @@
   }, { passive: true });
 
   var toggle = document.querySelector('.nav__toggle');
+  if (toggle) {
   var links = document.getElementById('nav-links');
   function setMenu(open) {
     links.classList.toggle('is-open', open);
@@ -17,10 +18,11 @@
   }
   toggle.addEventListener('click', function () { setMenu(!links.classList.contains('is-open')); });
   links.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  }
 
   // Footnote links open the sources drawer
   var sources = document.getElementById('sources');
-  document.querySelectorAll('a[href="#sources"]').forEach(function (a) {
+  if (sources) document.querySelectorAll('a[href="#sources"]').forEach(function (a) {
     a.addEventListener('click', function () { sources.open = true; });
   });
 
@@ -110,7 +112,7 @@
   }
 
   // Scroll-triggered reveals, chart drawing and count-up
-  var revealEls = document.querySelectorAll('.sec .h2, .steps, .states, .product, .metrics, .road, .people, .cta__grid, .where__stats, .chart');
+  var revealEls = document.querySelectorAll('.sec .h2, .steps, .states, .product, .metrics, .road, .people, .cta__grid, .where__stats, .chart, .explore, .drape');
   if (hasIO && !reduceMotion) {
     revealEls.forEach(function (el) { el.classList.add('reveal'); });
     var io = new IntersectionObserver(function (entries) {
