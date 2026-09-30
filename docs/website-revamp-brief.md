@@ -148,7 +148,7 @@ Keep the social icons already in the footer: LinkedIn, X, Facebook and TikTok.
 
 1. **The app**: the Aya Mama app MVP on Google Play is history. The site mentions it once, under "Done" in Progress, as where the pivot came from. The legal pages stay because the Play listing still needs them.
 2. **Location**: Kigali, Rwanda (the deck's cover), with the hardware build partner in Kenya.
-3. **Contact**: `mwende@glucorp.org` (the deck's closing slide).
+3. **Contact**: `glucorp@glucorp.org` (the deck's closing slide).
 4. **Evidence**: publish 0.815 with the deck's caveat: a proxy label on public ICU data, not yet a maternal model.
 5. **Waitlist backend**: not part of the pivoted product. The site uses `mailto:` links, and `server/main.py` is left as it is.
 6. **Language**: English only for now. The band's Kinyarwanda and English voice prompts are a product feature, not a site feature.
