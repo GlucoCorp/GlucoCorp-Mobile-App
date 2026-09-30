@@ -1,148 +1,131 @@
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
 
-  // Mobile navigation
+  // Sticky nav shadow and mobile menu
+  var top = document.querySelector('.top');
+  window.addEventListener('scroll', function () {
+    top.classList.toggle('is-scrolled', window.scrollY > 8);
+  }, { passive: true });
+
   var toggle = document.querySelector('.nav__toggle');
   var links = document.getElementById('nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        links.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.querySelector('use').setAttribute('href', '#i-menu');
-      }
-    });
+  function setMenu(open) {
+    links.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
   }
+  toggle.addEventListener('click', function () { setMenu(!links.classList.contains('is-open')); });
+  links.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
 
-  // Band state switcher (values from the Aya Mama screen design)
-  var STATES = {
-    normal:   { value: 88, trend: 'Steady',          word: 'Normal',   icon: 'circle-check',   sound: 'Silent' },
-    warning:  { value: 62, trend: 'Falling 8%/min',  word: 'Warning',  icon: 'bell-ring',      sound: 'Soft chime' },
-    critical: { value: 22, trend: 'Falling 14%/min', word: 'Critical', icon: 'triangle-alert', sound: 'Loud alarm, speaks the live reserve value' }
-  };
-  var band = document.querySelector('.band');
-  var buttons = document.querySelectorAll('.state');
+  // Footnote links open the sources drawer
+  var sources = document.getElementById('sources');
+  document.querySelectorAll('a[href="#sources"]').forEach(function (a) {
+    a.addEventListener('click', function () { sources.open = true; });
+  });
+
+  // Hero band: cycles Normal -> Warning -> Critical (values from the Aya Mama screen design)
+  var STATES = [
+    { name: 'normal',   value: 88, word: 'Normal',   icon: 'circle-check',   bpm: 1.25 },
+    { name: 'warning',  value: 62, word: 'Warning',  icon: 'bell-ring',      bpm: 1.6 },
+    { name: 'critical', value: 22, word: 'Critical', icon: 'triangle-alert', bpm: 2.0 }
+  ];
+  var band = document.querySelector('[data-cycle]');
+  var current = STATES[0];
   var countTimer;
 
-  function setState(name) {
-    var s = STATES[name];
-    if (!band || !s) return;
-    band.dataset.state = name;
-    band.querySelector('.band__trend').textContent = s.trend;
+  function show(s) {
+    current = s;
+    band.dataset.state = s.name;
     band.querySelector('.band__word').textContent = s.word;
     band.querySelector('.band__icon use').setAttribute('href', '#i-' + s.icon);
-    document.querySelector('.band__sound span').textContent = s.sound;
-    buttons.forEach(function (b) {
-      var on = b.dataset.set === name;
-      b.classList.toggle('is-on', on);
-      b.setAttribute('aria-pressed', String(on));
-    });
-
     var el = band.querySelector('.band__value');
     var from = parseInt(el.textContent, 10);
     clearInterval(countTimer);
-    if (reduceMotion || from === s.value) { el.textContent = s.value; return; }
     var step = from > s.value ? -1 : 1;
     countTimer = setInterval(function () {
+      if (from === s.value) return clearInterval(countTimer);
       from += step;
       el.textContent = from;
-      if (from === s.value) clearInterval(countTimer);
-    }, 18);
+    }, 22);
   }
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () { setState(b.dataset.set); });
-  });
-
-  // Draw the reserve chart when it scrolls into view
-  var charts = document.querySelectorAll('[data-draw]');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-drawn');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.35 });
-    charts.forEach(function (c) { io.observe(c); });
-  } else {
-    charts.forEach(function (c) { c.classList.add('is-drawn'); });
+  if (band && !reduceMotion) {
+    var i = 0;
+    var holds = [4200, 3200, 3600];
+    (function next() {
+      setTimeout(function () {
+        i = (i + 1) % STATES.length;
+        show(STATES[i]);
+        next();
+      }, holds[i]);
+    })();
   }
 
-  // Hero pulse trace: an illustrative photoplethysmography waveform
-  var canvas = document.querySelector('.monitor__trace');
+  // Pulse trace on the band's screen
+  var canvas = band && band.querySelector('.band__trace');
   if (canvas && canvas.getContext) {
     var ctx = canvas.getContext('2d');
-    var w, h, dpr;
-    var period = 0.78;          // seconds per beat (~77 bpm)
-    var speed = 150;            // px per second
-    var start = performance.now();
-
-    // One beat, t in [0,1): systolic upstroke, peak, dicrotic notch, diastolic runoff
-    function beat(t) {
-      var g = function (x, mu, sd) { return Math.exp(-Math.pow((x - mu) / sd, 2) / 2); };
-      return 1.0 * g(t, 0.16, 0.06) + 0.42 * g(t, 0.38, 0.075) - 0.08 * g(t, 0.3, 0.02);
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.scale(dpr, dpr);
+    var g = function (x, mu, sd) { return Math.exp(-Math.pow((x - mu) / sd, 2) / 2); };
+    // One beat: systolic peak, then the dicrotic wave; the wave flattens as reserve falls
+    function beat(t, reserve) {
+      var notch = 0.15 + 0.3 * (reserve / 100);
+      return g(t, 0.18, 0.06) + notch * g(t, 0.4, 0.07);
     }
-    function sample(x, now) {
-      var tSec = (now - start) / 1000 - x / speed;
-      var phase = ((tSec / period) % 1 + 1) % 1;
-      return beat(phase);
-    }
-    function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
+    var phase = 0, last = performance.now();
+    var colors = { normal: '#5FB98E', warning: '#E0A84A', critical: '#EF6B5B' };
     function draw(now) {
+      var dt = Math.min((now - last) / 1000, 0.05); last = now;
+      phase += dt * current.bpm;
       ctx.clearRect(0, 0, w, h);
-
-      // faint grid, like monitor paper
-      ctx.strokeStyle = 'rgba(245,239,231,0.05)';
-      ctx.lineWidth = 1;
-      for (var gx = 0; gx < w; gx += 32) { ctx.beginPath(); ctx.moveTo(gx + 0.5, 0); ctx.lineTo(gx + 0.5, h); ctx.stroke(); }
-      for (var gy = 0; gy < h; gy += 32) { ctx.beginPath(); ctx.moveTo(0, gy + 0.5); ctx.lineTo(w, gy + 0.5); ctx.stroke(); }
-
-      var base = h * 0.78, amp = h * 0.58;
-      var grad = ctx.createLinearGradient(0, 0, w, 0);
-      grad.addColorStop(0, 'rgba(232,131,111,0)');
-      grad.addColorStop(0.35, 'rgba(232,131,111,0.55)');
-      grad.addColorStop(1, 'rgba(232,131,111,1)');
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 2.2;
+      ctx.strokeStyle = colors[current.name];
+      ctx.lineWidth = 1.6;
       ctx.lineJoin = 'round';
       ctx.beginPath();
-      for (var x = 0; x <= w; x += 2) {
-        var y = base - sample(w - x, now) * amp;
-        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      var amp = 0.35 + 0.6 * (current.value / 100);
+      for (var x = 0; x <= w; x++) {
+        var t = phase - (w - x) / w * 2.2;
+        var v = beat(((t % 1) + 1) % 1, current.value);
+        var y = h - 4 - v * (h - 8) * amp;
+        x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
       }
       ctx.stroke();
+      if (!reduceMotion) requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
 
-      // leading dot
-      var yEnd = base - sample(0, now) * amp;
-      ctx.fillStyle = '#E8836F';
-      ctx.beginPath(); ctx.arc(w - 3, yEnd, 3.5, 0, Math.PI * 2); ctx.fill();
-    }
-    function loop(now) {
-      draw(now);
-      if (!reduceMotion && visible) raf = requestAnimationFrame(loop);
-    }
-    var raf, visible = true;
-    resize();
-    window.addEventListener('resize', function () { resize(); draw(performance.now()); });
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        visible = entries[0].isIntersecting;
-        cancelAnimationFrame(raf);
-        if (visible) raf = requestAnimationFrame(loop);
-      }).observe(canvas);
-    }
-    raf = requestAnimationFrame(loop);
+  // Count up the headline statistic
+  var big = document.querySelector('[data-count]');
+  function countUp(el) {
+    var target = +el.dataset.count, start = performance.now(), dur = 1400;
+    (function tick(now) {
+      var p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US');
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  // Scroll-triggered reveals, chart drawing and count-up
+  var revealEls = document.querySelectorAll('.sec .h2, .steps, .states, .product, .metrics, .road, .people, .cta__grid, .where__stats, .chart');
+  if (hasIO && !reduceMotion) {
+    revealEls.forEach(function (el) { el.classList.add('reveal'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        if (e.target.hasAttribute('data-draw')) e.target.classList.add('is-drawn');
+        if (e.target === big) countUp(big);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.2 });
+    revealEls.forEach(function (el) { io.observe(el); });
+    if (big) io.observe(big);
+  } else {
+    document.querySelectorAll('[data-draw]').forEach(function (c) { c.classList.add('is-drawn'); });
   }
 
   var year = document.querySelector('[data-year]');

@@ -1,6 +1,6 @@
 # GluCorp website revamp: brief
 
-Status: built. The new `index.html`, `css/site.css` and `js/site.js` follow this brief. Two items are still open: restyling the legal pages, and deleting the legacy `css/` and `js/` files.
+Status: built, then revised. The first build transcribed the deck and read like a document. The current site uses the deck for facts only: short copy, product visuals, one idea per section.
 
 ## 0. Source of truth
 
