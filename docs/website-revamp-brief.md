@@ -1,6 +1,6 @@
 # GluCorp website revamp: brief
 
-Status: draft for review. Nothing in the site changes until this brief is approved.
+Status: built. The new `index.html`, `css/site.css` and `js/site.js` follow this brief. Two items are still open: restyling the legal pages, and deleting the legacy `css/` and `js/` files.
 
 ## 0. Source of truth
 
@@ -144,18 +144,18 @@ Keep the social icons already in the footer: LinkedIn, X, Facebook and TikTok.
 - The footer year and the location, "Kigali, Rwanda".
 - The copyright line currently reads "GluCorp Health". Use "GluCorp Health Inc." to match the legal pages.
 
-## 9. Questions to answer before building
+## 9. Decisions (taken from the deck)
 
-1. **Is the Aya Mama consumer app still live** on Google Play, and should the site mention it at all beyond "where we started"?
-2. **Kigali move**: can it be announced publicly now, or should the site say "Nairobi and Kigali"?
-3. **Contact addresses**: use `mwende@glucorp.org` for partnerships, or a shared `partners@` / `hello@` inbox?
-4. **Evidence figures**: is the 0.815 AUC result approved for public use?
-5. **Waitlist backend** (`server/main.py`): keep it as a "partner enquiry" endpoint, or drop it and use a `mailto:` link?
-6. **Language**: add Kinyarwanda and French later?
+1. **The app**: the Aya Mama app MVP on Google Play is history. The site mentions it once, under "Done" in Progress, as where the pivot came from. The legal pages stay because the Play listing still needs them.
+2. **Location**: Kigali, Rwanda (the deck's cover), with the hardware build partner in Kenya.
+3. **Contact**: `mwende@glucorp.org` (the deck's closing slide).
+4. **Evidence**: publish 0.815 with the deck's caveat: a proxy label on public ICU data, not yet a maternal model.
+5. **Waitlist backend**: not part of the pivoted product. The site uses `mailto:` links, and `server/main.py` is left as it is.
+6. **Language**: English only for now. The band's Kinyarwanda and English voice prompts are a product feature, not a site feature.
 
 ## 10. Build order once approved
 
-1. Lock the copy (sections 3 and 4) and answer the section 9 questions.
+1. Lock the copy (sections 3 and 4) using the section 9 decisions.
 2. Export the assets (section 7).
 3. Build the design tokens and base CSS (colours, type scale, spacing, dark mode).
 4. Build the hero pulse animation and the reserve-curve SVG, the two signature pieces.
