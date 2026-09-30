@@ -280,7 +280,9 @@ strong { font-weight: 600; }
 /* Footer */
 .foot { background: #14110F; color: var(--on-ink-muted); padding-top: 56px; font-size: 15px; }
 .foot__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr auto; gap: 40px; }
-.foot__place { margin: 16px 0 10px; display: flex; align-items: center; gap: 8px; }
+.foot__place { margin: 16px 0 0; display: flex; align-items: center; gap: 8px; }
+.foot__place--soon { margin: 8px 0 14px; opacity: .85; }
+.soon { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); border: 1px solid var(--coral); border-radius: 999px; padding: 2px 8px; margin-left: 4px; }
 .foot__sub { display: inline-flex; align-items: center; gap: 8px; color: var(--on-ink); text-decoration: none; border-bottom: 1px solid var(--coral); padding-bottom: 2px; }
 .foot__links { display: grid; gap: 8px; }
 .foot__links a { text-decoration: none; }
