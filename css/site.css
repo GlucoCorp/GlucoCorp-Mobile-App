@@ -83,8 +83,8 @@ strong { font-weight: 600; }
 .top { position: sticky; top: 0; z-index: 20; background: var(--ink); transition: box-shadow .3s; }
 .top.is-scrolled { box-shadow: 0 1px 0 var(--on-ink-rule); }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; position: relative; }
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--on-ink); }
-.brand__mark { width: 34px; height: 20px; fill: none; stroke: var(--coral); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--on-ink); }
+.brand__logo { width: 48px; height: 48px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px rgba(245,239,231,.12); }
 .brand__name { font-family: var(--serif); font-weight: 700; font-size: 20px; }
 .brand__name span { font-weight: 400; font-style: italic; color: var(--on-ink-muted); }
 .nav__links { display: flex; align-items: center; gap: 28px; font-size: 15px; }
